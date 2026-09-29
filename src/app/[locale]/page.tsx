@@ -1,0 +1,182 @@
+import { getFormatter, getNow, getTranslations } from 'next-intl/server';
+import { localePrefix, pageLocale } from '@/i18n/page-locale';
+import { Link } from '@/i18n/navigation';
+import { Countdown } from '@/components/Countdown';
+import { EventCard } from '@/components/EventCard';
+import { EventMapLoader } from '@/components/EventMapLoader';
+import type { MapEvent } from '@/components/EventMap';
+import { SafetyStrip } from '@/components/SafetyStrip';
+import { Star } from '@/components/Star';
+import { LAUNCH_AT } from '@/lib/constants';
+import { listUpcomingEvents } from '@/lib/data/events';
+import { mapTilerKey } from '@/lib/env';
+import { MAP_ATTRIBUTION, tileUrlFor } from '@/lib/map';
+import { applyFilters, eventDates, type EventFilters, filtersToQuery, parseFilters } from '@/lib/filters';
+import { spotsLeft, spotsLevel } from '@/lib/spots';
+
+type SearchParams = Promise<Record<string, string | string[] | undefined>>;
+
+export default async function HomePage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: SearchParams }) {
+  const locale = await pageLocale(params);
+  const filters = parseFilters(await searchParams);
+  const [t, tEvent, tCountdown, format, now] = await Promise.all([
+    getTranslations('home'),
+    getTranslations('event'),
+    getTranslations('countdown'),
+    getFormatter(),
+    getNow(),
+  ]);
+
+  const allEvents = await listUpcomingEvents();
+  const dates = eventDates(allEvents);
+  const events = applyFilters(allEvents, filters);
+
+  const mapEvents: MapEvent[] = events.flatMap((e) =>
+    e.venue
+      ? [
+          {
+            id: e.id,
+            title: e.title,
+            lat: e.venue.lat,
+            lng: e.venue.lng,
+            spotsLeft: spotsLeft(e.capacity, e.rsvpCount),
+            level: spotsLevel(e.capacity, e.rsvpCount),
+            when: format.dateTime(new Date(e.startsAt), { weekday: 'short', day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit' }),
+            venue: e.venue.name,
+            spotsLabel: tEvent('spotsLeft', { count: spotsLeft(e.capacity, e.rsvpCount) }),
+            href: `${localePrefix(locale)}/events/${e.id}`,
+          },
+        ]
+      : [],
+  );
+
+  const withFilters = (patch: Partial<EventFilters>) => ({ pathname: '/' as const, query: filtersToQuery({ ...filters, ...patch }) });
+
+  return (
+    <>
+      <section className="container-page grid gap-8 py-8 md:grid-cols-[1.3fr_1fr] md:items-end md:py-12">
+        <div>
+          <p className="mb-3 inline-flex items-center gap-2 font-semibold text-accent">
+            <Star className="h-5 w-5" />
+            {t('kicker')}
+          </p>
+          <h1 className="text-4xl font-extrabold sm:text-5xl">{t('headline')}</h1>
+          <p className="mt-4 max-w-prose text-lg text-muted">{t('lead')}</p>
+        </div>
+        <Countdown
+          target={LAUNCH_AT}
+          serverNow={now.getTime()}
+          labels={{
+            title: tCountdown('title'),
+            days: tCountdown('days'),
+            hours: tCountdown('hours'),
+            minutes: tCountdown('minutes'),
+            seconds: tCountdown('seconds'),
+            launched: tCountdown('launched'),
+          }}
+        />
+      </section>
+
+      <div className="container-page">
+        <SafetyStrip />
+      </div>
+
+      <section aria-labelledby="events-heading" className="container-page mt-10">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <h2 id="events-heading" className="text-3xl font-extrabold">
+            {t('eventsHeading')}
+          </h2>
+          <nav aria-label={t('viewLabel')} className="flex rounded-full border border-input p-1">
+            {(['map', 'list'] as const).map((view) => (
+              <Link
+                key={view}
+                href={withFilters({ view })}
+                aria-current={filters.view === view ? 'page' : undefined}
+                className={`inline-flex min-h-11 min-w-20 items-center justify-center rounded-full px-4 font-bold ${
+                  filters.view === view ? 'bg-accent text-accent-ink' : ''
+                }`}
+              >
+                {view === 'map' ? t('viewMap') : t('viewList')}
+              </Link>
+            ))}
+          </nav>
+        </div>
+
+        <div className="mt-5 flex flex-col gap-3" role="group" aria-label={t('filtersLabel')}>
+          <FilterRow label={t('filterDate')}>
+            <FilterChip href={withFilters({ date: null })} active={filters.date === null} label={t('allDates')} />
+            {dates.map((d) => (
+              <FilterChip
+                key={d}
+                href={withFilters({ date: filters.date === d ? null : d })}
+                active={filters.date === d}
+                label={format.dateTime(new Date(`${d}T12:00:00Z`), { weekday: 'short', day: 'numeric', month: 'short' })}
+              />
+            ))}
+          </FilterRow>
+          <FilterRow label={t('filterPlatform')}>
+            <FilterChip href={withFilters({ platform: null })} active={filters.platform === null} label={t('allPlatforms')} />
+            <FilterChip href={withFilters({ platform: filters.platform === 'ps5' ? null : 'ps5' })} active={filters.platform === 'ps5'} label="PS5" />
+            <FilterChip href={withFilters({ platform: filters.platform === 'xbox' ? null : 'xbox' })} active={filters.platform === 'xbox'} label="Xbox" />
+            <FilterChip href={withFilters({ spots: !filters.spots })} active={filters.spots} label={t('spotsOnly')} />
+          </FilterRow>
+        </div>
+
+        <p className="mt-5 font-semibold" role="status">
+          {t('resultCount', { count: events.length })}
+        </p>
+
+        {filters.view === 'map' ? (
+          <div className="mt-4">
+            <Link href={withFilters({ view: 'list' })} className="sr-only-focusable btn btn-secondary mb-3">
+              {t('skipMap')}
+            </Link>
+            <EventMapLoader
+              events={mapEvents}
+              tileUrl={tileUrlFor(mapTilerKey())}
+              attribution={MAP_ATTRIBUTION}
+              labels={{ region: t('mapLabel'), viewEvent: t('viewEvent'), full: tEvent('fullShort'), noTiles: t('noTiles') }}
+            />
+          </div>
+        ) : null}
+
+        {events.length === 0 ? (
+          <div className="card mt-6 p-6">
+            <p className="font-semibold">{allEvents.length === 0 ? t('emptyAll') : t('emptyFiltered')}</p>
+            <p className="mt-2 text-muted">
+              {t('emptyHost')}{' '}
+              <Link href="/organizer" className="link">
+                {t('emptyHostLink')}
+              </Link>
+            </p>
+          </div>
+        ) : (
+          <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            {events.map((event) => (
+              <li key={event.id}>
+                <EventCard event={event} />
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+    </>
+  );
+}
+
+function FilterRow({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <div className="flex flex-wrap items-center gap-2">
+      <span className="mr-1 text-sm font-semibold uppercase tracking-wider text-muted">{label}</span>
+      {children}
+    </div>
+  );
+}
+
+function FilterChip({ href, active, label }: { href: { pathname: '/'; query: Record<string, string> }; active: boolean; label: string }) {
+  return (
+    <Link href={href} className="chip" aria-current={active ? 'true' : undefined} scroll={false}>
+      {label}
+    </Link>
+  );
+}

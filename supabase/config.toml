@@ -213,7 +213,7 @@ token_verifications = 30
 web3 = 30
 
 # Configure one of the supported captcha providers: `hcaptcha`, `turnstile`.
-# Production: enable Turnstile in the Supabase dashboard (Auth > Bot and Abuse Protection) with
+# Production: enable Turnstile in the Supabase dashboard (Authentication > Attack Protection) with
 # TURNSTILE_SECRET_KEY so the raw Auth API also requires a captcha token. The app forwards the
 # token from the signup/login forms. Kept off locally because GoTrue would need outbound network
 # access to Cloudflare from inside Docker. See README "Production setup".

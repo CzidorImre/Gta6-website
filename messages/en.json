@@ -1,0 +1,693 @@
+{
+  "meta": {
+    "title": "Wanted Level: GTA 6 launch nights in Antwerp",
+    "description": "No console on launch night? Find a GTA 6 launch night at a bar, gaming café or student room in Antwerp, RSVP and play together."
+  },
+  "nav": {
+    "home": "Wanted Level home",
+    "host": "Host an event",
+    "admin": "Admin",
+    "account": "Account",
+    "login": "Log in",
+    "language": "Language",
+    "skipToContent": "Skip to content"
+  },
+  "footer": {
+    "label": "Footer",
+    "rules": "Community & safety rules",
+    "host": "Host an event",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "contact": "Contact",
+    "emergency": "In an emergency, call",
+    "about": "Wanted Level is a free, non-commercial community project from Antwerp.",
+    "nonAffiliation": "Not affiliated with, endorsed or sponsored by Rockstar Games or Take-Two Interactive. GTA 6 is mentioned only to describe what people play at these meetups."
+  },
+  "notFound": {
+    "title": "Nothing here",
+    "body": "This page doesn't exist, or the event isn't public (anymore).",
+    "back": "Back to the map"
+  },
+  "home": {
+    "kicker": "Antwerp · 19 November 2026",
+    "headline": "No console on launch night? Play GTA 6 together.",
+    "lead": "GTA 6 launches on PS5 and Xbox only. Find a launch night at a bar, gaming café or student room near you, grab a spot and play with people instead of alone.",
+    "eventsHeading": "Launch nights",
+    "viewLabel": "View",
+    "viewMap": "Map",
+    "viewList": "List",
+    "filtersLabel": "Filters",
+    "filterDate": "Date",
+    "allDates": "All dates",
+    "filterPlatform": "Platform",
+    "allPlatforms": "All",
+    "spotsOnly": "Spots left",
+    "resultCount": "{count, plural, =0 {No events match} one {# event} other {# events}}",
+    "skipMap": "Skip the map, show the list",
+    "mapLabel": "Map of launch nights in Antwerp. Every event is also in the list below.",
+    "viewEvent": "View event",
+    "noTiles": "Map tiles aren't configured here. Pins still show where events are.",
+    "emptyAll": "No launch nights published yet. Organizers are setting them up, check back soon.",
+    "emptyFiltered": "Nothing matches these filters. Try another date or platform.",
+    "emptyHost": "Run a bar, gaming café or student association?",
+    "emptyHostLink": "Host a launch night",
+    "deleted": "Your account and everything linked to it have been deleted. Take care!"
+  },
+  "countdown": {
+    "title": "Launch in",
+    "days": "days",
+    "hours": "hrs",
+    "minutes": "min",
+    "seconds": "sec",
+    "launched": "It's out. Go play."
+  },
+  "safety": {
+    "label": "How we keep meetups safe",
+    "publicVenues": "Public venues only: bars, gaming cafés and student rooms. Never private homes.",
+    "reviewed": "Every organizer and every event is checked by a person before it goes live.",
+    "reportInstantly": "Something feels off? Report it. A safety report hides the event right away.",
+    "rulesLink": "Read the community & safety rules"
+  },
+  "event": {
+    "spotsLeft": "{count, plural, =0 {Full} one {# spot left} other {# spots left}}",
+    "fullShort": "Full",
+    "verifiedVenue": "Verified venue",
+    "minAgeShort": "{age}+",
+    "minAgeLong": "Minimum age {age}"
+  },
+  "platforms": {
+    "label": "Platforms",
+    "ps5": "PS5",
+    "xbox": "Xbox Series X|S"
+  },
+  "venueKinds": {
+    "bar": "Bar",
+    "gaming_cafe": "Gaming café",
+    "student_association": "Student association",
+    "other_public": "Public venue"
+  },
+  "email": {
+    "reasonLabel": "Reason: {reason}",
+    "openLink": "Open Wanted Level",
+    "footer": "Wanted Level, free community meetups in Antwerp. Questions? Reply to this email or write to hello@wantedlevel.be.",
+    "adminNewReport": {
+      "subject": "New {category} report: {title}",
+      "body": "Someone filed a {category} report about \"{title}\". {hidden}\n\nWhat they wrote: {details}"
+    },
+    "adminNewApplication": {
+      "subject": "New organizer application: {name}",
+      "body": "{name} applied to host launch nights at {title}.\n\nCheck their social link and venue before approving."
+    },
+    "adminEventPending": {
+      "subject": "Event waiting for review: {title}",
+      "body": "\"{title}\" by {name} is waiting for review. It isn't public until an admin publishes it."
+    },
+    "applicationApproved": {
+      "subject": "You're approved to host on Wanted Level",
+      "body": "Good news: your application to host launch nights as {name} was approved.\n\nYou can now add your venue and create events. Every event is checked once more before it goes live."
+    },
+    "applicationRejected": {
+      "subject": "About your Wanted Level organizer application",
+      "body": "Thanks for applying to host as {name}. We can't approve the application at this point."
+    },
+    "eventPublished": {
+      "subject": "Your event is live: {title}",
+      "body": "\"{title}\" is now public on the Wanted Level map and people can RSVP."
+    },
+    "eventRejected": {
+      "subject": "Your event wasn't approved: {title}",
+      "body": "\"{title}\" wasn't published. You can edit it and send it in again."
+    },
+    "eventRemoved": {
+      "subject": "Your event was removed: {title}",
+      "body": "A moderator removed \"{title}\" from Wanted Level. People who RSVPed were told it's off."
+    },
+    "eventHidden": {
+      "subject": "Your event is hidden while we check it: {title}",
+      "body": "\"{title}\" is hidden while a moderator looks into it. We'll let you know what happens next."
+    },
+    "eventRestored": {
+      "subject": "Your event is visible again: {title}",
+      "body": "\"{title}\" is visible on Wanted Level again."
+    },
+    "postRemoved": {
+      "subject": "Your group board post was removed",
+      "body": "A moderator removed your post on the group board of \"{title}\"."
+    },
+    "postHidden": {
+      "subject": "Your group board post is hidden",
+      "body": "Your post on the group board of \"{title}\" is hidden while a moderator looks into it."
+    },
+    "postRestored": {
+      "subject": "Your group board post is visible again",
+      "body": "Your post on the group board of \"{title}\" is visible again."
+    },
+    "userBanned": {
+      "subject": "Your Wanted Level account is suspended",
+      "body": "Your account can no longer RSVP, post, report or host events, and your upcoming RSVPs were cancelled.\n\nYou can still log in to see your data or delete your account. If you think this is a mistake, reply to this email."
+    },
+    "userUnbanned": {
+      "subject": "Your Wanted Level account is active again",
+      "body": "Your account is no longer suspended. Welcome back."
+    },
+    "venueVerified": {
+      "subject": "Your venue is verified: {title}",
+      "body": "\"{title}\" now shows a verified badge on its events."
+    },
+    "venueUnverified": {
+      "subject": "Verified badge removed: {title}",
+      "body": "\"{title}\" no longer shows a verified badge."
+    },
+    "eventCancelledAttendee": {
+      "subject": "Cancelled: {title}",
+      "body": "The organizer cancelled \"{title}\", which you RSVPed to. Sorry! Other launch nights may still have spots."
+    },
+    "eventRemovedAttendee": {
+      "subject": "Off: {title}",
+      "body": "\"{title}\", which you RSVPed to, was taken down by our moderators. Please don't go to the venue for this event."
+    },
+    "accountDeleted": {
+      "subject": "Your Wanted Level account is deleted",
+      "body": "As you asked, we deleted your account and everything linked to it: your profile, date of birth, RSVPs and group posts.\n\nThis is the last email you'll get from us."
+    }
+  },
+  "eventPage": {
+    "back": "All launch nights",
+    "cancelled": "This event is cancelled. The organizer called it off.",
+    "hiddenNotice": "This event is hidden from the public while a moderator checks a report.",
+    "reReview": "This event changed and is being checked again. You're still on the list.",
+    "pendingNotice": "Waiting for review. Only you (and moderators) can see this event until it's published.",
+    "notPublic": "This event is not public.",
+    "hostedBy": "Hosted by",
+    "when": "When",
+    "timezoneNote": "Antwerp time",
+    "where": "Where",
+    "openInMaps": "Open in OpenStreetMap",
+    "platforms": "Platforms",
+    "consoles": "Consoles",
+    "consoleCount": "{count, plural, one {# console} other {# consoles}}",
+    "capacity": "Spots",
+    "capacityValue": "{going} of {capacity} taken",
+    "minAge": "Minimum age",
+    "minAgeValue": "{age} or older on the day",
+    "about": "About this launch night",
+    "rsvpHeading": "Going?",
+    "rsvpDone": "You're in! See you there. Add it to your calendar so you don't forget.",
+    "rsvpCancelled": "Your RSVP is cancelled and your spot is free for someone else.",
+    "addToCalendar": "Add to calendar (.ics)",
+    "reportEvent": "Report this event",
+    "rsvpClosed": "RSVPs are closed for this event.",
+    "rsvpStarted": "This event has already started.",
+    "loginToRsvp": "Log in or create a free account to grab a spot.",
+    "loginButton": "Log in to RSVP",
+    "signupButton": "Create an account",
+    "youreGoing": "You're going",
+    "working": "One moment…",
+    "cancelRsvp": "Cancel my RSVP",
+    "banned": "Your account is suspended, so you can't RSVP.",
+    "tooYoung": "This one is {age}+ on the day of the event, so you can't RSVP. Check the map for events with a lower minimum age.",
+    "full": "Full",
+    "fullHint": "No spots left right now. People do cancel, so check back later.",
+    "rsvpButton": "RSVP, I'm going",
+    "rulesFirst": "First time? You'll read and accept the community & safety rules first. Takes a minute.",
+    "safetyHeading": "Before you go",
+    "safetyTellFriend": "Tell a friend or family member where you're going and when you'll be back.",
+    "safetyPublic": "Meet people inside the venue, not somewhere else first.",
+    "safetyLeave": "Something feels off? Talk to the venue staff or the organizer, or just leave.",
+    "safetyEmergency": "Emergency:",
+    "safetyRules": "Read the community & safety rules"
+  },
+  "board": {
+    "title": "Going solo? Find a group",
+    "intro": "Only people who RSVPed to this event can see this board. Share your Discord only if you want to.",
+    "locked": "RSVP to see who else is going solo and to post your own note.",
+    "empty": "No posts yet. Be the first to say hi.",
+    "you": "you",
+    "hidden": "Hidden while a moderator checks a report.",
+    "discord": "Discord",
+    "report": "Report this post",
+    "postHeading": "Post a note",
+    "editHeading": "Edit your note",
+    "note": "Your note",
+    "noteHint": "Up to 280 characters. No phone numbers or addresses.",
+    "discordLabel": "Discord username (optional)",
+    "discordHint": "Only people going to this event will see it. Leave empty to stay private.",
+    "saving": "Saving…",
+    "post": "Post",
+    "update": "Update",
+    "delete": "Delete my post",
+    "saved": "Your post is up.",
+    "deleted": "Your post is deleted.",
+    "error": "That didn't work. Check that you're still going and try again.",
+    "invalid": "Check your note (1 to 280 characters) and Discord username (letters, numbers, dots and underscores)."
+  },
+  "errors": {
+    "GENERIC": "Something went wrong. Please try again.",
+    "NOT_AUTHENTICATED": "Please log in first.",
+    "PROFILE_MISSING": "Your profile is missing. Log out and in again, or contact us.",
+    "BANNED": "Your account is suspended, so you can't do this.",
+    "RATE_LIMITED": "Too many attempts. Wait a few minutes and try again.",
+    "RULES_NOT_ACCEPTED": "Please accept the community & safety rules first.",
+    "EVENT_NOT_AVAILABLE": "This event isn't open for RSVPs.",
+    "EVENT_STARTED": "This event has already started.",
+    "EVENT_FULL": "Sorry, this event just filled up. People do cancel, so check back later.",
+    "UNDER_EVENT_MIN_AGE": "You're under the minimum age for this event.",
+    "UNDER_MINIMUM_AGE": "You need to be at least 13 to use Wanted Level.",
+    "DATE_OF_BIRTH_INVALID": "That date of birth doesn't look right.",
+    "DATE_OF_BIRTH_REQUIRED": "Please enter your date of birth.",
+    "DISPLAY_NAME_INVALID": "Use a display name of 2 to 40 characters.",
+    "NOT_ORGANIZER": "Only approved organizers can do this.",
+    "VENUE_NOT_FOUND": "That venue wasn't found.",
+    "VENUE_OUTSIDE_AREA": "The venue must be in the Antwerp area. Move the pin.",
+    "EVENT_NOT_FOUND": "That event wasn't found.",
+    "EVENT_NOT_EDITABLE": "This event can't be edited anymore.",
+    "EVENT_IN_PAST": "The event must start in the future.",
+    "EVENT_NOT_CANCELLABLE": "This event can't be cancelled.",
+    "CAPACITY_BELOW_RSVPS": "More people have RSVPed than that capacity allows.",
+    "ALREADY_ORGANIZER": "You're already an organizer.",
+    "APPLICATION_PENDING": "You already have an application waiting for review.",
+    "TARGET_NOT_FOUND": "We couldn't find what you're reporting.",
+    "ADMIN_MFA_REQUIRED": "Admin actions need a two-factor verified session.",
+    "REASON_REQUIRED": "Please give a reason (at least 3 characters). It's logged and sent to the person affected.",
+    "INVALID_TRANSITION": "That action isn't possible in the event's current state.",
+    "APPLICATION_ALREADY_REVIEWED": "This application was already reviewed.",
+    "REPORT_ALREADY_RESOLVED": "This report was already resolved.",
+    "CANNOT_BAN_ADMIN": "Admins can't be suspended.",
+    "CAPTCHA_FAILED": "The anti-bot check didn't pass. Please try again.",
+    "VALIDATION": "Please check the highlighted fields."
+  },
+  "form": {
+    "errors": {
+      "displayName": "Use 2 to 40 characters.",
+      "dateOfBirth": "Enter a valid date.",
+      "email": "Enter a valid email address.",
+      "socialUrl": "Enter a full link starting with https://",
+      "orgName": "Use 2 to 80 characters.",
+      "venueName": "Use 2 to 80 characters.",
+      "venueAddress": "Enter the street, number and postal code.",
+      "venueKind": "Choose what kind of venue it is.",
+      "message": "Keep it under 1000 characters.",
+      "publicVenue": "Please confirm this is a public venue.",
+      "location": "Put the pin on the venue, inside the Antwerp area.",
+      "title": "Use 3 to 80 characters.",
+      "description": "Keep it under 2000 characters.",
+      "date": "Pick a date.",
+      "startTime": "Pick a start time.",
+      "endTime": "Pick an end time.",
+      "platforms": "Choose at least one platform.",
+      "consoleCount": "Between 1 and 100.",
+      "capacity": "Between 1 and 500.",
+      "minAge": "Choose 13, 16 or 18.",
+      "venueId": "Choose a venue.",
+      "target": "Something is missing. Go back and try again.",
+      "category": "Choose a category.",
+      "details": "Keep it under 1000 characters.",
+      "note": "Write 1 to 280 characters.",
+      "discordHandle": "Letters, numbers, dots and underscores only.",
+      "reason": "Give a reason of at least 3 characters."
+    }
+  },
+  "forms": {
+    "signup": {
+      "title": "Create your account",
+      "lead": "Free, and it takes a minute. We email you a link, no password needed.",
+      "displayName": "Display name",
+      "displayNameHint": "Shown on group boards to people going to the same event. A nickname is fine.",
+      "dateOfBirth": "Date of birth",
+      "dateOfBirthHint": "Only used to check age limits. Nobody else sees it.",
+      "email": "Email",
+      "legal": "By creating an account you agree to the <terms>terms of use</terms>. Read how we handle your data in the <privacy>privacy policy</privacy>.",
+      "sending": "Sending…",
+      "submit": "Email me a signup link",
+      "under13Title": "Sorry, you need to be at least 13.",
+      "under13Body": "In Belgium you can create an account like this yourself from age 13. We didn't save anything you entered. Ask a parent about events for all ages!",
+      "haveAccount": "Already have an account?",
+      "loginLink": "Log in"
+    },
+    "login": {
+      "title": "Log in",
+      "lead": "Enter your email and we'll send you a login link. No password needed.",
+      "email": "Email",
+      "sending": "Sending…",
+      "submit": "Email me a login link",
+      "linkError": "That login link didn't work. It may have expired or been used already. Ask for a new one below.",
+      "noAccount": "New here?",
+      "signupLink": "Create an account"
+    },
+    "checkEmail": {
+      "title": "Check your inbox",
+      "signupBody": "We sent you an email with a link to confirm your account. Tap it on this device or any other.",
+      "loginBody": "If there's an account for that address, we just sent it a login link. Tap it to log in.",
+      "tipSpam": "Nothing after a couple of minutes? Check your spam or promotions folder.",
+      "tipExpiry": "The link works once and expires after an hour.",
+      "tipNoAccount": "No email at all? You might not have an account yet.",
+      "signupLink": "Create one"
+    },
+    "confirm": {
+      "title": "Almost there",
+      "lead": "Tap the button to finish logging in to Wanted Level.",
+      "working": "Logging in…",
+      "button": "Continue"
+    },
+    "report": {
+      "title": "Report",
+      "titleEvent": "Report this event",
+      "titlePost": "Report this post",
+      "lead": "Tell us what's wrong. Moderators read every report, and the person you report won't see who reported them.",
+      "emergency": "Is someone in danger right now? Call",
+      "categoryLegend": "What's the problem?",
+      "categories": {
+        "safety": {
+          "label": "Safety",
+          "hint": "Someone could get hurt, feels unsafe, or a private address is involved. We hide it right away until we've checked."
+        },
+        "spam": {
+          "label": "Spam",
+          "hint": "Ads, scams or nothing to do with a launch night."
+        },
+        "wrong_info": {
+          "label": "Wrong info",
+          "hint": "Wrong time, place, age limit or the event isn't happening."
+        },
+        "other": {
+          "label": "Something else",
+          "hint": "Anything else that breaks the rules."
+        }
+      },
+      "categoryError": "Choose what the problem is.",
+      "details": "What happened? (optional)",
+      "detailsHint": "Up to 1000 characters. Details help us act faster.",
+      "sending": "Sending…",
+      "submit": "Send report"
+    },
+    "reportThanks": {
+      "title": "Thanks for reporting",
+      "hidden": "We hid it right away. A moderator will look at it as soon as possible.",
+      "received": "A moderator will look at it as soon as possible.",
+      "next": "If we take action, the person responsible hears what was removed and why. We don't tell them who reported it.",
+      "emergency": "If someone is in danger right now, call",
+      "back": "Back to the map"
+    },
+    "apply": {
+      "title": "Host a launch night",
+      "lead": "Run a bar, café, gaming café or student association room in Antwerp? Tell us who you are. A person checks every application.",
+      "ruleVenue": "Public venues only, never a private home.",
+      "ruleReview": "Once approved you can create events. Each one is checked before it goes live.",
+      "ruleFree": "Events on Wanted Level are free to attend.",
+      "orgName": {
+        "label": "Organization or venue name",
+        "hint": "Shown on your events, e.g. the name of your bar or association."
+      },
+      "socialUrl": {
+        "label": "Website or social media page",
+        "hint": "So we can check you're real. Starts with https://"
+      },
+      "venueName": {
+        "label": "Venue name",
+        "hint": "Where would you host?"
+      },
+      "venueAddress": {
+        "label": "Venue address",
+        "hint": "Street, number, postal code."
+      },
+      "venueKind": "Type of venue",
+      "choose": "Choose…",
+      "message": "Anything else we should know? (optional)",
+      "messageHint": "Number of consoles, how many people fit, who's in charge on the night…",
+      "publicVenue": "I confirm this is a public venue (not a private home) and I'm allowed to organize events there.",
+      "sending": "Sending…",
+      "submit": "Send application"
+    },
+    "venueKinds": {
+      "bar": "Bar or café",
+      "gaming_cafe": "Gaming café",
+      "student_association": "Student association room",
+      "other_public": "Other public venue"
+    },
+    "event": {
+      "newTitle": "New launch night",
+      "newLead": "Your event is checked by a moderator before it appears on the map.",
+      "editTitle": "Edit launch night",
+      "fixErrors": "Some fields need a fix. They're marked below.",
+      "editPublishedWarning": "This event is live. Saving changes sends it back for review and hides it from the map until a moderator checks it again. People already going keep their spot.",
+      "venueHeading": "Venue",
+      "venueChoice": "Choose a venue",
+      "newVenue": "Add a new venue",
+      "venueName": "Venue name",
+      "venueAddress": "Address",
+      "venueKind": "Type of venue",
+      "choose": "Choose…",
+      "detailsHeading": "Event details",
+      "title": "Title",
+      "description": "Description",
+      "descriptionHint": "What should people know? Food, drinks, house rules, bring your own controller…",
+      "date": "Date",
+      "startTime": "Starts",
+      "endTime": "Ends",
+      "endTimeHint": "If it ends after midnight, just pick the time: we'll put it on the next day.",
+      "timezone": "Times are Antwerp time.",
+      "platforms": "Platforms",
+      "consoleCount": "Consoles",
+      "capacity": "Spots (people)",
+      "minAge": "Minimum age",
+      "minAgeOption": "{age}+",
+      "minAgeHint": "Serving alcohol? 16+ for beer and wine, 18+ for spirits.",
+      "publicVenue": "I confirm this is a public venue, the event is free to attend and open to anyone who meets the minimum age.",
+      "saving": "Saving…",
+      "saveChanges": "Save and send for review",
+      "submit": "Send for review",
+      "reviewNote": "You'll get an email once it's published."
+    }
+  },
+  "venuePicker": {
+    "find": "Find the address on the map",
+    "searching": "Searching…",
+    "dragHint": "Then drag the pin onto the entrance if needed.",
+    "unavailable": "Address search isn't available right now. Drag the pin to the right spot, or type the coordinates.",
+    "noResults": "No match in the Antwerp area. Check the address or drag the pin.",
+    "results": "Matching addresses",
+    "mapLabel": "Map with a draggable pin for the venue location",
+    "lat": "Latitude",
+    "lng": "Longitude",
+    "outside": "The pin must be in the Antwerp area."
+  },
+  "account": {
+    "title": "Your account",
+    "signedInAs": "Logged in as {email}",
+    "localeSaved": "Language saved. We'll email you in this language too.",
+    "bannedNotice": "Your account is suspended: you can't RSVP, post, report or host events. You can still delete your account below.",
+    "goingHeading": "You're going to",
+    "goingEmpty": "No upcoming RSVPs yet.",
+    "findEvent": "Find a launch night",
+    "profileHeading": "Profile",
+    "profilePrivacy": "Your display name is only shown on group boards, to people going to the same event. There are no public profiles.",
+    "displayName": "Display name",
+    "displayNameHint": "2 to 40 characters.",
+    "socialUrl": "Social link (optional)",
+    "socialUrlHint": "Only you and moderators can see this.",
+    "saveProfile": "Save profile",
+    "profileSaved": "Profile saved.",
+    "profileError": "Couldn't save your profile. Please try again.",
+    "saving": "Saving…",
+    "dateOfBirth": "Date of birth (can't be changed)",
+    "rules": "Community & safety rules",
+    "rulesAcceptedOn": "Accepted on {date}",
+    "rulesNotAccepted": "Not accepted yet",
+    "languageHeading": "Language",
+    "languageLabel": "Website and email language",
+    "saveLanguage": "Save language",
+    "organizeHeading": "Hosting",
+    "organizerDashboard": "Go to your organizer dashboard",
+    "organizerApply": "Want to host a launch night? Apply here",
+    "signOut": "Log out",
+    "deleteHeading": "Delete account",
+    "deleteBody": "This deletes your account right away: your profile, date of birth, RSVPs, group board posts and organizer applications. If you're an organizer, your venues and events go too and people going are told. This can't be undone.",
+    "deleteConfirm": "Yes, delete my account and all my data.",
+    "deleteConfirmMissing": "Tick the box to confirm.",
+    "deleteError": "Something went wrong deleting your account. Please try again or email us.",
+    "deleting": "Deleting…",
+    "deleteButton": "Delete my account"
+  },
+  "rulesPage": {
+    "title": "Community & safety rules",
+    "beforeRsvp": "Before your first RSVP: please read these rules and accept them at the bottom of the page.",
+    "acceptHeading": "Accept the rules",
+    "thanks": "Thanks! You're all set.",
+    "unchecked": "Tick the box to accept the rules.",
+    "failed": "Couldn't save that. Please try again.",
+    "loginToAccept": "Log in to accept the rules.",
+    "login": "Log in",
+    "acceptedOn": "You accepted these rules on {date}.",
+    "backToEvent": "Back to the event",
+    "checkbox": "I've read the community & safety rules and I'll follow them.",
+    "working": "One moment…",
+    "accept": "Accept the rules",
+    "acceptAndRsvp": "Accept and RSVP"
+  },
+  "organizer": {
+    "title": "Hosting",
+    "pitchTitle": "Host a launch night",
+    "pitchBody": "Lots of people won't have a PS5 or Xbox on launch night. If you run a bar, gaming café or student room in Antwerp, open your doors and put your event on the map.",
+    "pitchVenues": "Public venues only: bars, cafés, gaming cafés, student association rooms.",
+    "pitchReview": "We check every organizer and every event before it goes live.",
+    "pitchFree": "Free to list, free to attend.",
+    "pitchSignup": "Create an account to apply",
+    "pitchLogin": "I have an account",
+    "applied": "Thanks! Your application is in. You'll get an email when a moderator has looked at it.",
+    "applicationPending": "Your application as {name} is waiting for review.",
+    "applicationRejected": "Your last application wasn't approved.",
+    "reason": "Reason: {reason}",
+    "applyButton": "Apply to host",
+    "dashboardTitle": "Your events",
+    "newEvent": "New event",
+    "saved": "Saved and sent for review. You'll get an email when it's published.",
+    "cancelled": "The event is cancelled. People who were going have been emailed.",
+    "banned": "Your account is suspended, so you can't create or edit events.",
+    "eventsHeading": "Events",
+    "noEvents": "No events yet. Create your first launch night!",
+    "hiddenTag": "Hidden",
+    "going": "{going}/{capacity} going",
+    "edit": "Edit",
+    "working": "One moment…",
+    "cancel": "Cancel event",
+    "venuesHeading": "Venues",
+    "noVenues": "You'll add your venue when you create your first event.",
+    "notVerified": "Not verified yet"
+  },
+  "eventStatus": {
+    "pending": "Waiting for review",
+    "published": "Published",
+    "rejected": "Not approved",
+    "cancelled": "Cancelled",
+    "removed": "Removed"
+  },
+  "mfa": {
+    "title": "Two-factor check",
+    "verifyLead": "Admin tools need a code from your authenticator app.",
+    "enrollLead": "Admins must use an authenticator app (TOTP). Set it up once, then enter a code every time you log in.",
+    "code": "6-digit code",
+    "verify": "Verify",
+    "verifying": "Checking…",
+    "invalid": "That code didn't work. Check the time on your phone and try the newest code.",
+    "startEnroll": "Set up authenticator app",
+    "enrollFailed": "Couldn't start the setup. Try again.",
+    "working": "One moment…",
+    "step1": "Scan the QR code with an authenticator app (for example Aegis, 2FAS, Google Authenticator or 1Password).",
+    "step2": "Enter the 6-digit code the app shows.",
+    "qrAlt": "QR code for your authenticator app",
+    "manual": "Can't scan? Enter this key manually:"
+  },
+  "admin": {
+    "title": "Moderation",
+    "done": "Done. It's logged, and the person affected got an email.",
+    "reason": "Reason (logged and emailed to the person affected)",
+    "reasonHint": "Be specific and factual. Don't include anyone's personal details.",
+    "working": "Working…",
+    "nav": {
+      "label": "Moderation",
+      "overview": "Overview",
+      "reports": "Reports ({count})",
+      "applications": "Applications ({count})",
+      "events": "Events ({count})",
+      "users": "Users",
+      "log": "Log"
+    },
+    "overview": {
+      "lead": "Safety reports first. Every action needs a reason and is logged.",
+      "safety": "Open safety reports",
+      "reports": "All open reports",
+      "applications": "Applications to review",
+      "events": "Events to review",
+      "hidden": "Hidden events",
+      "docs": "Response times and message templates are in MODERATION.md; emergencies and police requests in INCIDENT.md."
+    },
+    "applications": {
+      "title": "Organizer applications",
+      "empty": "No applications waiting.",
+      "applicant": "Applicant",
+      "social": "Website / social",
+      "venue": "Venue",
+      "address": "Address",
+      "message": "Message",
+      "submitted": "Submitted",
+      "approve": "Approve",
+      "reject": "Reject"
+    },
+    "events": {
+      "title": "Events",
+      "pendingHeading": "Waiting for review ({count})",
+      "noPending": "Nothing waiting.",
+      "allHeading": "Upcoming and recent",
+      "hidden": "Hidden: {reason}",
+      "legalHold": "Legal hold",
+      "going": "{going}/{capacity} going",
+      "verified": "verified venue",
+      "notVerified": "venue not verified",
+      "actions": "Actions",
+      "publish": "Publish",
+      "reject": "Reject",
+      "hide": "Hide",
+      "restore": "Unhide",
+      "remove": "Remove",
+      "setHold": "Set legal hold",
+      "releaseHold": "Release legal hold",
+      "verifyVenue": "Give venue verified badge",
+      "unverifyVenue": "Remove verified badge"
+    },
+    "reports": {
+      "title": "Reports",
+      "lead": "Safety reports are at the top. Their target is already hidden.",
+      "empty": "No open reports.",
+      "targetEvent": "Event",
+      "targetPost": "Group post",
+      "currentlyHidden": "Currently hidden",
+      "postGone": "The author has since deleted this post.",
+      "details": "Reporter wrote",
+      "reportedBy": "Reported by {name}",
+      "deletedUser": "a deleted account",
+      "removeEvent": "Remove event",
+      "removePost": "Remove post",
+      "dismiss": "Dismiss",
+      "dismissRestore": "Dismiss and unhide",
+      "resolve": "Resolve, leave as is",
+      "hidePost": "Hide post while reviewing"
+    },
+    "users": {
+      "title": "Users",
+      "search": "Search by email, display name or user id",
+      "searchPlaceholder": "name@example.com",
+      "searchButton": "Search",
+      "noResults": "No users found.",
+      "joined": "Joined {date}",
+      "bannedSince": "Suspended since {date}: {reason}",
+      "ban": "Suspend account",
+      "unban": "Lift suspension"
+    },
+    "log": {
+      "title": "Moderation log",
+      "lead": "The last 200 admin actions. This log can't be edited.",
+      "when": "When",
+      "admin": "Admin",
+      "action": "Action",
+      "target": "Target",
+      "reason": "Reason"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Questions, feedback, a problem with an event or your account? Email us. We usually answer within a day, faster around launch.",
+    "emergencyTitle": "Emergency",
+    "emergencyBody": "If someone is in danger, don't email us first. Call",
+    "safetyTitle": "Report a problem with an event or post",
+    "safetyBody": "Use the report button on the event or post. Safety reports hide it immediately.",
+    "rulesLink": "Community & safety rules",
+    "organizersTitle": "Venues and organizers",
+    "organizersBody": "Want to host a launch night at your bar, gaming café or student room?",
+    "organizersLink": "Apply to host",
+    "authoritiesTitle": "Police and authorities",
+    "authoritiesBody": "Official requests about an event or user: email us from an official address with a reference number. We only share data through proper legal channels.",
+    "privacyTitle": "Your data",
+    "privacyBody": "Questions about your data or your rights? Email us, or delete your account yourself in your account settings.",
+    "nonAffiliation": "Wanted Level is not affiliated with Rockstar Games or Take-Two Interactive."
+  }
+}

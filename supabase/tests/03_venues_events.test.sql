@@ -39,18 +39,18 @@ insert into public.venues (id, organizer_id, name, address, kind, lat, lng) valu
 
 -- Venues ----------------------------------------------------------------------------------------
 select pg_temp.act_as('33333333-0000-4000-8000-00000000000c');
-select throws_ok($$ select public.save_venue(null, 'My House', 'Somewhere 1, Antwerpen', 'bar', 51.21, 4.40) $$,
+select throws_ok($$ select public.save_venue('My House', 'Somewhere 1, Antwerpen', 'bar', 51.21, 4.40, null) $$,
   '42501', 'NOT_ORGANIZER', 'regular users cannot create venues');
 select throws_ok($$ insert into public.venues (organizer_id, name, address, kind, lat, lng)
                     values ('33333333-0000-4000-8000-00000000000c', 'X', 'Street 1, X', 'bar', 51.21, 4.40) $$,
   '42501', null, 'venues cannot be inserted directly');
 
 select pg_temp.act_as('33333333-0000-4000-8000-00000000000a');
-select throws_ok($$ select public.save_venue(null, 'Brussels Bar', 'Grote Markt 1, Brussel', 'bar', 50.8467, 4.3525) $$,
+select throws_ok($$ select public.save_venue('Brussels Bar', 'Grote Markt 1, Brussel', 'bar', 50.8467, 4.3525, null) $$,
   '23514', 'VENUE_OUTSIDE_AREA', 'venues must be in the Antwerp area');
-select lives_ok($$ select public.save_venue(null, 'Second Bar', 'Meir 1, 2000 Antwerpen', 'bar', 51.2177, 4.4096) $$,
+select lives_ok($$ select public.save_venue('Second Bar', 'Meir 1, 2000 Antwerpen', 'bar', 51.2177, 4.4096, null) $$,
   'organizers can create a venue in Antwerp');
-select throws_ok($$ select public.save_venue('33333333-1111-4000-8000-000000000002', 'Stolen', 'Keyserlei 1, Antwerpen', 'bar', 51.218, 4.417) $$,
+select throws_ok($$ select public.save_venue('Stolen', 'Keyserlei 1, Antwerpen', 'bar', 51.218, 4.417, '33333333-1111-4000-8000-000000000002') $$,
   'P0001', 'VENUE_NOT_FOUND', 'organizers cannot edit another organizer''s venue');
 
 -- Events: creation is always pending ------------------------------------------------------------
@@ -60,20 +60,20 @@ select throws_ok(
              now() + interval '2 days 3 hours', '{ps5}', 2, 10, 16, 'published') $$,
   '42501', null, 'organizers cannot insert events directly (e.g. as published)');
 select lives_ok(
-  $$ select public.save_event(null, '33333333-1111-4000-8000-000000000001', 'Launch Night A', 'Come play',
-       now() + interval '10 days', now() + interval '10 days 5 hours', '{ps5,xbox,ps5}', 4, 20, 16) $$,
+  $$ select public.save_event('33333333-1111-4000-8000-000000000001', 'Launch Night A', 'Come play',
+       now() + interval '10 days', now() + interval '10 days 5 hours', '{ps5,xbox,ps5}', 4, 20, 16, null) $$,
   'organizers create events through save_event');
 select throws_ok(
-  $$ select public.save_event(null, '33333333-1111-4000-8000-000000000002', 'Not my venue', '',
-       now() + interval '10 days', now() + interval '10 days 5 hours', '{ps5}', 1, 5, 16) $$,
+  $$ select public.save_event('33333333-1111-4000-8000-000000000002', 'Not my venue', '',
+       now() + interval '10 days', now() + interval '10 days 5 hours', '{ps5}', 1, 5, 16, null) $$,
   'P0001', 'VENUE_NOT_FOUND', 'organizers can only use their own venues');
 select throws_ok(
-  $$ select public.save_event(null, '33333333-1111-4000-8000-000000000001', 'Past', '',
-       now() - interval '1 day', now() - interval '20 hours', '{ps5}', 1, 5, 16) $$,
+  $$ select public.save_event('33333333-1111-4000-8000-000000000001', 'Past', '',
+       now() - interval '1 day', now() - interval '20 hours', '{ps5}', 1, 5, 16, null) $$,
   '23514', 'EVENT_IN_PAST', 'events must start in the future');
 select throws_ok(
-  $$ select public.save_event(null, '33333333-1111-4000-8000-000000000001', 'Weird age', '',
-       now() + interval '3 days', now() + interval '3 days 2 hours', '{ps5}', 1, 5, 15) $$,
+  $$ select public.save_event('33333333-1111-4000-8000-000000000001', 'Weird age', '',
+       now() + interval '3 days', now() + interval '3 days 2 hours', '{ps5}', 1, 5, 15, null) $$,
   '23514', null, 'minimum age must be 13, 16 or 18');
 
 reset role;
@@ -115,8 +115,8 @@ select is_empty($$ select 1 from public.venues where id = '33333333-1111-4000-80
 -- Editing a published event sends it back to review ----------------------------------------------
 select pg_temp.act_as('33333333-0000-4000-8000-00000000000a');
 select lives_ok(
-  $$ select public.save_event((select id from public.events where title = 'Launch Night A'), '33333333-1111-4000-8000-000000000001',
-       'Launch Night A (edited)', 'Now with pizza', now() + interval '10 days', now() + interval '10 days 6 hours', '{ps5}', 4, 20, 18) $$,
+  $$ select public.save_event('33333333-1111-4000-8000-000000000001',
+       'Launch Night A (edited)', 'Now with pizza', now() + interval '10 days', now() + interval '10 days 6 hours', '{ps5}', 4, 20, 18, (select id from public.events where title = 'Launch Night A')) $$,
   'organizers can edit their published event');
 reset role;
 select is((select status::text from public.events where title = 'Launch Night A (edited)'), 'pending',
@@ -156,7 +156,7 @@ reset role;
 update public.venues set verified_at = now() where id = '33333333-1111-4000-8000-000000000001';
 update public.events set status = 'published' where title = 'Launch Night A (edited)';
 select pg_temp.act_as('33333333-0000-4000-8000-00000000000a');
-select public.save_venue('33333333-1111-4000-8000-000000000001', 'Bar A', 'Somewhere else 5, 2018 Antwerpen', 'bar', 51.2000, 4.4200);
+select public.save_venue('Bar A', 'Somewhere else 5, 2018 Antwerpen', 'bar', 51.2000, 4.4200, '33333333-1111-4000-8000-000000000001');
 reset role;
 select results_eq(
   $$ select v.verified_at is null, e.status::text from public.venues v join public.events e on e.venue_id = v.id

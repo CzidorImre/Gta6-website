@@ -207,16 +207,16 @@ $$;
 revoke execute on function public.require_organizer() from public, anon;
 grant execute on function public.require_organizer() to authenticated;
 
--- Create (p_venue_id null) or update a venue. Moving a venue or changing its address clears the
+-- Create (no p_venue_id) or update a venue. Moving a venue or changing its address clears the
 -- verified badge and sends its upcoming published events back to review, so an approved event
 -- can't be quietly moved somewhere else.
 create function public.save_venue(
-  p_venue_id uuid,
   p_name text,
   p_address text,
   p_kind public.venue_kind,
   p_lat double precision,
-  p_lng double precision
+  p_lng double precision,
+  p_venue_id uuid default null
 )
 returns uuid
 language plpgsql
@@ -258,13 +258,12 @@ begin
 end;
 $$;
 
-revoke execute on function public.save_venue(uuid, text, text, public.venue_kind, double precision, double precision) from public, anon;
-grant execute on function public.save_venue(uuid, text, text, public.venue_kind, double precision, double precision) to authenticated;
+revoke execute on function public.save_venue(text, text, public.venue_kind, double precision, double precision, uuid) from public, anon;
+grant execute on function public.save_venue(text, text, public.venue_kind, double precision, double precision, uuid) to authenticated;
 
--- Create (p_event_id null) or edit an event. Always leaves it `pending`: organizers can never
+-- Create (no p_event_id) or edit an event. Always leaves it `pending`: organizers can never
 -- publish, and an edit to a published event sends it back to admin review.
 create function public.save_event(
-  p_event_id uuid,
   p_venue_id uuid,
   p_title text,
   p_description text,
@@ -273,7 +272,8 @@ create function public.save_event(
   p_platforms public.platform[],
   p_console_count integer,
   p_capacity integer,
-  p_min_age integer
+  p_min_age integer,
+  p_event_id uuid default null
 )
 returns uuid
 language plpgsql
@@ -331,8 +331,8 @@ begin
 end;
 $$;
 
-revoke execute on function public.save_event(uuid, uuid, text, text, timestamptz, timestamptz, public.platform[], integer, integer, integer) from public, anon;
-grant execute on function public.save_event(uuid, uuid, text, text, timestamptz, timestamptz, public.platform[], integer, integer, integer) to authenticated;
+revoke execute on function public.save_event(uuid, text, text, timestamptz, timestamptz, public.platform[], integer, integer, integer, uuid) from public, anon;
+grant execute on function public.save_event(uuid, text, text, timestamptz, timestamptz, public.platform[], integer, integer, integer, uuid) to authenticated;
 
 -- Organizer cancels their own upcoming event. Cancelled events stay reachable by link.
 create function public.cancel_event(p_event_id uuid)

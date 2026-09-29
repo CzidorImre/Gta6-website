@@ -1,0 +1,693 @@
+{
+  "meta": {
+    "title": "Wanted Level: GTA 6-launchavonden in Antwerpen",
+    "description": "Geen console op launchavond? Vind een GTA 6-launchavond in een bar, gamingcafé of studentenlokaal in Antwerpen, schrijf je in en speel samen."
+  },
+  "nav": {
+    "home": "Wanted Level startpagina",
+    "host": "Organiseer een event",
+    "admin": "Beheer",
+    "account": "Account",
+    "login": "Inloggen",
+    "language": "Taal",
+    "skipToContent": "Naar de inhoud"
+  },
+  "footer": {
+    "label": "Voettekst",
+    "rules": "Community- & veiligheidsregels",
+    "host": "Organiseer een event",
+    "privacy": "Privacy",
+    "terms": "Voorwaarden",
+    "contact": "Contact",
+    "emergency": "In nood bel je",
+    "about": "Wanted Level is een gratis, niet-commercieel communityproject uit Antwerpen.",
+    "nonAffiliation": "Niet verbonden aan, gesteund of gesponsord door Rockstar Games of Take-Two Interactive. GTA 6 wordt enkel vermeld om te beschrijven wat er op deze meetups gespeeld wordt."
+  },
+  "notFound": {
+    "title": "Hier is niets",
+    "body": "Deze pagina bestaat niet, of het event is (niet langer) openbaar.",
+    "back": "Terug naar de kaart"
+  },
+  "home": {
+    "kicker": "Antwerpen · 19 november 2026",
+    "headline": "Geen console op launchavond? Speel GTA 6 samen.",
+    "lead": "GTA 6 komt enkel uit op PS5 en Xbox. Vind een launchavond in een bar, gamingcafé of studentenlokaal in de buurt, reserveer een plek en speel samen in plaats van alleen.",
+    "eventsHeading": "Launchavonden",
+    "viewLabel": "Weergave",
+    "viewMap": "Kaart",
+    "viewList": "Lijst",
+    "filtersLabel": "Filters",
+    "filterDate": "Datum",
+    "allDates": "Alle data",
+    "filterPlatform": "Platform",
+    "allPlatforms": "Alle",
+    "spotsOnly": "Nog plaats",
+    "resultCount": "{count, plural, =0 {Geen events gevonden} one {# event} other {# events}}",
+    "skipMap": "Sla de kaart over, toon de lijst",
+    "mapLabel": "Kaart met launchavonden in Antwerpen. Elk event staat ook in de lijst hieronder.",
+    "viewEvent": "Bekijk event",
+    "noTiles": "Kaarttegels zijn hier niet ingesteld. De pins tonen wel waar de events zijn.",
+    "emptyAll": "Nog geen launchavonden gepubliceerd. Organisatoren zijn bezig, kom snel terug.",
+    "emptyFiltered": "Niets gevonden met deze filters. Probeer een andere datum of een ander platform.",
+    "emptyHost": "Baat je een bar of gamingcafé uit, of zit je in een studentenvereniging?",
+    "emptyHostLink": "Organiseer een launchavond",
+    "deleted": "Je account en alles wat eraan gekoppeld was, is gewist. Het ga je goed!"
+  },
+  "countdown": {
+    "title": "Launch over",
+    "days": "dagen",
+    "hours": "uur",
+    "minutes": "min",
+    "seconds": "sec",
+    "launched": "Hij is uit. Speel!"
+  },
+  "safety": {
+    "label": "Zo houden we meetups veilig",
+    "publicVenues": "Enkel openbare locaties: bars, gamingcafés en studentenlokalen. Nooit privéwoningen.",
+    "reviewed": "Elke organisator en elk event wordt door een mens nagekeken voor het online komt.",
+    "reportInstantly": "Voelt iets niet juist? Meld het. Een veiligheidsmelding verbergt het event meteen.",
+    "rulesLink": "Lees de community- & veiligheidsregels"
+  },
+  "event": {
+    "spotsLeft": "{count, plural, =0 {Volzet} one {nog # plek} other {nog # plekken}}",
+    "fullShort": "Vol",
+    "verifiedVenue": "Geverifieerde locatie",
+    "minAgeShort": "{age}+",
+    "minAgeLong": "Minimumleeftijd {age}"
+  },
+  "platforms": {
+    "label": "Platformen",
+    "ps5": "PS5",
+    "xbox": "Xbox Series X|S"
+  },
+  "venueKinds": {
+    "bar": "Bar",
+    "gaming_cafe": "Gamingcafé",
+    "student_association": "Studentenvereniging",
+    "other_public": "Openbare locatie"
+  },
+  "email": {
+    "reasonLabel": "Reden: {reason}",
+    "openLink": "Open Wanted Level",
+    "footer": "Wanted Level, gratis community-meetups in Antwerpen. Vragen? Beantwoord deze mail of schrijf naar hello@wantedlevel.be.",
+    "adminNewReport": {
+      "subject": "Nieuwe melding ({category}): {title}",
+      "body": "Iemand meldde \"{title}\" als {category}. {hidden}\n\nToelichting: {details}"
+    },
+    "adminNewApplication": {
+      "subject": "Nieuwe aanvraag als organisator: {name}",
+      "body": "{name} wil launchavonden organiseren in {title}.\n\nKijk de sociale link en de locatie na voor je goedkeurt."
+    },
+    "adminEventPending": {
+      "subject": "Event wacht op controle: {title}",
+      "body": "\"{title}\" van {name} wacht op controle. Het is pas openbaar als een beheerder het publiceert."
+    },
+    "applicationApproved": {
+      "subject": "Je mag organiseren op Wanted Level",
+      "body": "Goed nieuws: je aanvraag om launchavonden te organiseren als {name} is goedgekeurd.\n\nJe kan nu je locatie toevoegen en events aanmaken. Elk event wordt nog eens nagekeken voor het online komt."
+    },
+    "applicationRejected": {
+      "subject": "Over je aanvraag als organisator",
+      "body": "Bedankt voor je aanvraag om te organiseren als {name}. We kunnen de aanvraag op dit moment niet goedkeuren."
+    },
+    "eventPublished": {
+      "subject": "Je event staat online: {title}",
+      "body": "\"{title}\" staat nu op de kaart van Wanted Level en mensen kunnen zich inschrijven."
+    },
+    "eventRejected": {
+      "subject": "Je event is niet goedgekeurd: {title}",
+      "body": "\"{title}\" is niet gepubliceerd. Je kan het aanpassen en opnieuw indienen."
+    },
+    "eventRemoved": {
+      "subject": "Je event is verwijderd: {title}",
+      "body": "Een moderator heeft \"{title}\" van Wanted Level gehaald. Wie zich had ingeschreven, weet dat het niet doorgaat."
+    },
+    "eventHidden": {
+      "subject": "Je event is verborgen tijdens een controle: {title}",
+      "body": "\"{title}\" is verborgen terwijl een moderator het bekijkt. We laten je weten wat er verder gebeurt."
+    },
+    "eventRestored": {
+      "subject": "Je event is weer zichtbaar: {title}",
+      "body": "\"{title}\" is weer zichtbaar op Wanted Level."
+    },
+    "postRemoved": {
+      "subject": "Je bericht op het groepsbord is verwijderd",
+      "body": "Een moderator heeft je bericht op het groepsbord van \"{title}\" verwijderd."
+    },
+    "postHidden": {
+      "subject": "Je bericht op het groepsbord is verborgen",
+      "body": "Je bericht op het groepsbord van \"{title}\" is verborgen terwijl een moderator het bekijkt."
+    },
+    "postRestored": {
+      "subject": "Je bericht op het groepsbord is weer zichtbaar",
+      "body": "Je bericht op het groepsbord van \"{title}\" is weer zichtbaar."
+    },
+    "userBanned": {
+      "subject": "Je Wanted Level-account is geschorst",
+      "body": "Je kan je niet meer inschrijven, posten, melden of events organiseren, en je komende inschrijvingen zijn geannuleerd.\n\nJe kan nog wel inloggen om je gegevens te bekijken of je account te wissen. Denk je dat dit een vergissing is? Beantwoord dan deze mail."
+    },
+    "userUnbanned": {
+      "subject": "Je Wanted Level-account is weer actief",
+      "body": "Je account is niet langer geschorst. Welkom terug."
+    },
+    "venueVerified": {
+      "subject": "Je locatie is geverifieerd: {title}",
+      "body": "\"{title}\" krijgt nu een verificatiebadge bij zijn events."
+    },
+    "venueUnverified": {
+      "subject": "Verificatiebadge ingetrokken: {title}",
+      "body": "\"{title}\" toont geen verificatiebadge meer."
+    },
+    "eventCancelledAttendee": {
+      "subject": "Geannuleerd: {title}",
+      "body": "De organisator heeft \"{title}\" geannuleerd, waarvoor je ingeschreven was. Sorry! Op andere launchavonden is misschien nog plaats."
+    },
+    "eventRemovedAttendee": {
+      "subject": "Gaat niet door: {title}",
+      "body": "\"{title}\", waarvoor je ingeschreven was, is door onze moderators offline gehaald. Ga voor dit event niet naar de locatie."
+    },
+    "accountDeleted": {
+      "subject": "Je Wanted Level-account is gewist",
+      "body": "Zoals gevraagd hebben we je account gewist, met alles wat eraan gekoppeld was: je profiel, geboortedatum, inschrijvingen en berichten op groepsborden.\n\nDit is de laatste mail die je van ons krijgt."
+    }
+  },
+  "eventPage": {
+    "back": "Alle launchavonden",
+    "cancelled": "Dit event is geannuleerd. De organisator heeft het afgeblazen.",
+    "hiddenNotice": "Dit event is verborgen voor het publiek terwijl een moderator een melding bekijkt.",
+    "reReview": "Dit event is aangepast en wordt opnieuw nagekeken. Je staat nog steeds op de lijst.",
+    "pendingNotice": "Wacht op controle. Tot het gepubliceerd is, zie enkel jij (en de moderators) dit event.",
+    "notPublic": "Dit event is niet openbaar.",
+    "hostedBy": "Georganiseerd door",
+    "when": "Wanneer",
+    "timezoneNote": "Antwerpse tijd",
+    "where": "Waar",
+    "openInMaps": "Openen in OpenStreetMap",
+    "platforms": "Platformen",
+    "consoles": "Consoles",
+    "consoleCount": "{count, plural, one {# console} other {# consoles}}",
+    "capacity": "Plekken",
+    "capacityValue": "{going} van {capacity} bezet",
+    "minAge": "Minimumleeftijd",
+    "minAgeValue": "{age} of ouder op de dag zelf",
+    "about": "Over deze launchavond",
+    "rsvpHeading": "Ga je mee?",
+    "rsvpDone": "Je bent erbij! Tot dan. Zet het in je agenda zodat je het niet vergeet.",
+    "rsvpCancelled": "Je inschrijving is geannuleerd en je plek is vrij voor iemand anders.",
+    "addToCalendar": "Toevoegen aan agenda (.ics)",
+    "reportEvent": "Meld dit event",
+    "rsvpClosed": "Inschrijven voor dit event kan niet meer.",
+    "rsvpStarted": "Dit event is al begonnen.",
+    "loginToRsvp": "Log in of maak een gratis account om een plek te reserveren.",
+    "loginButton": "Inloggen om in te schrijven",
+    "signupButton": "Account maken",
+    "youreGoing": "Je gaat mee",
+    "working": "Even geduld…",
+    "cancelRsvp": "Mijn inschrijving annuleren",
+    "banned": "Je account is geschorst, dus je kan je niet inschrijven.",
+    "tooYoung": "Dit event is {age}+ op de dag zelf, dus je kan je niet inschrijven. Kijk op de kaart voor events met een lagere minimumleeftijd.",
+    "full": "Volzet",
+    "fullHint": "Er is nu geen plaats meer. Mensen annuleren soms, dus kom later nog eens kijken.",
+    "rsvpButton": "Inschrijven, ik kom",
+    "rulesFirst": "Eerste keer? Je leest en aanvaardt eerst de community- & veiligheidsregels. Duurt een minuutje.",
+    "safetyHeading": "Voor je vertrekt",
+    "safetyTellFriend": "Laat een vriend of familielid weten waar je naartoe gaat en wanneer je terug bent.",
+    "safetyPublic": "Spreek af binnen op de locatie, niet eerst ergens anders.",
+    "safetyLeave": "Voelt iets niet juist? Spreek het personeel of de organisator aan, of vertrek gewoon.",
+    "safetyEmergency": "Noodgeval:",
+    "safetyRules": "Lees de community- & veiligheidsregels"
+  },
+  "board": {
+    "title": "Alleen? Zoek een groep",
+    "intro": "Enkel wie ingeschreven is voor dit event, ziet dit bord. Deel je Discord alleen als je dat wil.",
+    "locked": "Schrijf je in om te zien wie er nog alleen komt en om zelf een bericht te plaatsen.",
+    "empty": "Nog geen berichten. Zeg als eerste hallo.",
+    "you": "jij",
+    "hidden": "Verborgen terwijl een moderator een melding bekijkt.",
+    "discord": "Discord",
+    "report": "Meld dit bericht",
+    "postHeading": "Plaats een bericht",
+    "editHeading": "Pas je bericht aan",
+    "note": "Je bericht",
+    "noteHint": "Maximaal 280 tekens. Geen telefoonnummers of adressen.",
+    "discordLabel": "Discord-gebruikersnaam (optioneel)",
+    "discordHint": "Enkel wie naar dit event gaat, ziet hem. Laat leeg als je dat liever privé houdt.",
+    "saving": "Opslaan…",
+    "post": "Plaatsen",
+    "update": "Bijwerken",
+    "delete": "Mijn bericht verwijderen",
+    "saved": "Je bericht staat online.",
+    "deleted": "Je bericht is verwijderd.",
+    "error": "Dat lukte niet. Controleer of je nog ingeschreven bent en probeer opnieuw.",
+    "invalid": "Controleer je bericht (1 tot 280 tekens) en je Discord-naam (letters, cijfers, punten en underscores)."
+  },
+  "errors": {
+    "GENERIC": "Er ging iets mis. Probeer het opnieuw.",
+    "NOT_AUTHENTICATED": "Log eerst in.",
+    "PROFILE_MISSING": "Je profiel ontbreekt. Log uit en opnieuw in, of neem contact op.",
+    "BANNED": "Je account is geschorst, dus dit kan je niet doen.",
+    "RATE_LIMITED": "Te veel pogingen. Wacht een paar minuten en probeer opnieuw.",
+    "RULES_NOT_ACCEPTED": "Aanvaard eerst de community- & veiligheidsregels.",
+    "EVENT_NOT_AVAILABLE": "Voor dit event kan je je niet inschrijven.",
+    "EVENT_STARTED": "Dit event is al begonnen.",
+    "EVENT_FULL": "Sorry, dit event is net volzet. Mensen annuleren soms, dus kom later nog eens kijken.",
+    "UNDER_EVENT_MIN_AGE": "Je bent jonger dan de minimumleeftijd voor dit event.",
+    "UNDER_MINIMUM_AGE": "Je moet minstens 13 zijn om Wanted Level te gebruiken.",
+    "DATE_OF_BIRTH_INVALID": "Die geboortedatum klopt niet.",
+    "DATE_OF_BIRTH_REQUIRED": "Vul je geboortedatum in.",
+    "DISPLAY_NAME_INVALID": "Gebruik een schermnaam van 2 tot 40 tekens.",
+    "NOT_ORGANIZER": "Enkel goedgekeurde organisatoren kunnen dit.",
+    "VENUE_NOT_FOUND": "Die locatie is niet gevonden.",
+    "VENUE_OUTSIDE_AREA": "De locatie moet in de regio Antwerpen liggen. Verplaats de pin.",
+    "EVENT_NOT_FOUND": "Dat event is niet gevonden.",
+    "EVENT_NOT_EDITABLE": "Dit event kan niet meer aangepast worden.",
+    "EVENT_IN_PAST": "Het event moet in de toekomst beginnen.",
+    "EVENT_NOT_CANCELLABLE": "Dit event kan niet geannuleerd worden.",
+    "CAPACITY_BELOW_RSVPS": "Er zijn al meer mensen ingeschreven dan die capaciteit toelaat.",
+    "ALREADY_ORGANIZER": "Je bent al organisator.",
+    "APPLICATION_PENDING": "Je hebt al een aanvraag die op controle wacht.",
+    "TARGET_NOT_FOUND": "We vinden niet wat je wil melden.",
+    "ADMIN_MFA_REQUIRED": "Beheeracties vereisen een sessie met tweestapsverificatie.",
+    "REASON_REQUIRED": "Geef een reden (minstens 3 tekens). Ze wordt bijgehouden en naar de betrokkene gestuurd.",
+    "INVALID_TRANSITION": "Die actie kan niet in de huidige toestand van het event.",
+    "APPLICATION_ALREADY_REVIEWED": "Deze aanvraag is al behandeld.",
+    "REPORT_ALREADY_RESOLVED": "Deze melding is al afgehandeld.",
+    "CANNOT_BAN_ADMIN": "Beheerders kunnen niet geschorst worden.",
+    "CAPTCHA_FAILED": "De controle tegen bots is niet gelukt. Probeer het opnieuw.",
+    "VALIDATION": "Controleer de gemarkeerde velden."
+  },
+  "form": {
+    "errors": {
+      "displayName": "Gebruik 2 tot 40 tekens.",
+      "dateOfBirth": "Vul een geldige datum in.",
+      "email": "Vul een geldig e-mailadres in.",
+      "socialUrl": "Vul een volledige link in die begint met https://",
+      "orgName": "Gebruik 2 tot 80 tekens.",
+      "venueName": "Gebruik 2 tot 80 tekens.",
+      "venueAddress": "Vul straat, nummer en postcode in.",
+      "venueKind": "Kies wat voor locatie het is.",
+      "message": "Houd het onder 1000 tekens.",
+      "publicVenue": "Bevestig dat dit een openbare locatie is.",
+      "location": "Zet de pin op de locatie, binnen de regio Antwerpen.",
+      "title": "Gebruik 3 tot 80 tekens.",
+      "description": "Houd het onder 2000 tekens.",
+      "date": "Kies een datum.",
+      "startTime": "Kies een beginuur.",
+      "endTime": "Kies een einduur.",
+      "platforms": "Kies minstens één platform.",
+      "consoleCount": "Tussen 1 en 100.",
+      "capacity": "Tussen 1 en 500.",
+      "minAge": "Kies 13, 16 of 18.",
+      "venueId": "Kies een locatie.",
+      "target": "Er ontbreekt iets. Ga terug en probeer opnieuw.",
+      "category": "Kies een categorie.",
+      "details": "Houd het onder 1000 tekens.",
+      "note": "Schrijf 1 tot 280 tekens.",
+      "discordHandle": "Enkel letters, cijfers, punten en underscores.",
+      "reason": "Geef een reden van minstens 3 tekens."
+    }
+  },
+  "forms": {
+    "signup": {
+      "title": "Maak je account",
+      "lead": "Gratis, en in een minuut klaar. We mailen je een link, je hebt geen wachtwoord nodig.",
+      "displayName": "Schermnaam",
+      "displayNameHint": "Te zien op groepsborden, voor mensen die naar hetzelfde event gaan. Een bijnaam mag.",
+      "dateOfBirth": "Geboortedatum",
+      "dateOfBirthHint": "Enkel om leeftijdsgrenzen te controleren. Niemand anders ziet ze.",
+      "email": "E-mail",
+      "legal": "Door een account te maken ga je akkoord met de <terms>gebruiksvoorwaarden</terms>. In het <privacy>privacybeleid</privacy> lees je hoe we met je gegevens omgaan.",
+      "sending": "Versturen…",
+      "submit": "Mail me een aanmeldlink",
+      "under13Title": "Sorry, je moet minstens 13 zijn.",
+      "under13Body": "In België kan je vanaf 13 jaar zelf zo'n account maken. We hebben niets bewaard van wat je invulde. Vraag je ouders eens naar events voor alle leeftijden!",
+      "haveAccount": "Heb je al een account?",
+      "loginLink": "Inloggen"
+    },
+    "login": {
+      "title": "Inloggen",
+      "lead": "Vul je e-mailadres in en we sturen je een inloglink. Je hebt geen wachtwoord nodig.",
+      "email": "E-mail",
+      "sending": "Versturen…",
+      "submit": "Mail me een inloglink",
+      "linkError": "Die inloglink werkte niet. Misschien is hij verlopen of al gebruikt. Vraag hieronder een nieuwe aan.",
+      "noAccount": "Nieuw hier?",
+      "signupLink": "Maak een account"
+    },
+    "checkEmail": {
+      "title": "Kijk in je mailbox",
+      "signupBody": "We stuurden je een mail met een link om je account te bevestigen. Tik erop, op dit toestel of een ander.",
+      "loginBody": "Als er een account bestaat voor dat adres, hebben we er net een inloglink naartoe gestuurd. Tik erop om in te loggen.",
+      "tipSpam": "Na een paar minuten nog niets? Kijk in je map met spam of promoties.",
+      "tipExpiry": "De link werkt één keer en vervalt na een uur.",
+      "tipNoAccount": "Helemaal geen mail? Misschien heb je nog geen account.",
+      "signupLink": "Maak er een"
+    },
+    "confirm": {
+      "title": "Bijna klaar",
+      "lead": "Tik op de knop om het inloggen bij Wanted Level af te ronden.",
+      "working": "Inloggen…",
+      "button": "Verder"
+    },
+    "report": {
+      "title": "Melden",
+      "titleEvent": "Meld dit event",
+      "titlePost": "Meld dit bericht",
+      "lead": "Vertel ons wat er mis is. Moderators lezen elke melding, en wie je meldt, ziet niet wie hem meldde.",
+      "emergency": "Is iemand nu in gevaar? Bel",
+      "categoryLegend": "Wat is het probleem?",
+      "categories": {
+        "safety": {
+          "label": "Veiligheid",
+          "hint": "Iemand kan gekwetst worden, voelt zich onveilig, of er is een privéadres in het spel. We verbergen het meteen tot we het bekeken hebben."
+        },
+        "spam": {
+          "label": "Spam",
+          "hint": "Reclame, oplichting of niets te maken met een launchavond."
+        },
+        "wrong_info": {
+          "label": "Foute info",
+          "hint": "Verkeerd uur, verkeerde plaats of leeftijdsgrens, of het event gaat niet door."
+        },
+        "other": {
+          "label": "Iets anders",
+          "hint": "Al de rest dat tegen de regels ingaat."
+        }
+      },
+      "categoryError": "Kies wat het probleem is.",
+      "details": "Wat is er gebeurd? (optioneel)",
+      "detailsHint": "Maximaal 1000 tekens. Details helpen ons sneller te handelen.",
+      "sending": "Versturen…",
+      "submit": "Melding versturen"
+    },
+    "reportThanks": {
+      "title": "Bedankt voor je melding",
+      "hidden": "We hebben het meteen verborgen. Een moderator bekijkt het zo snel mogelijk.",
+      "received": "Een moderator bekijkt het zo snel mogelijk.",
+      "next": "Als we ingrijpen, hoort de verantwoordelijke wat er verwijderd is en waarom. We zeggen niet wie het meldde.",
+      "emergency": "Is iemand nu in gevaar? Bel",
+      "back": "Terug naar de kaart"
+    },
+    "apply": {
+      "title": "Organiseer een launchavond",
+      "lead": "Baat je een bar, café of gamingcafé uit, of heb je een lokaal van een studentenvereniging in Antwerpen? Vertel ons wie je bent. Een mens bekijkt elke aanvraag.",
+      "ruleVenue": "Enkel openbare locaties, nooit een privéwoning.",
+      "ruleReview": "Na goedkeuring kan je events aanmaken. Elk event wordt nagekeken voor het online komt.",
+      "ruleFree": "Events op Wanted Level zijn gratis toegankelijk.",
+      "orgName": {
+        "label": "Naam van de organisatie of locatie",
+        "hint": "Te zien bij je events, bijvoorbeeld de naam van je bar of vereniging."
+      },
+      "socialUrl": {
+        "label": "Website of socialemediapagina",
+        "hint": "Zo kunnen we nagaan dat je echt bent. Begint met https://"
+      },
+      "venueName": {
+        "label": "Naam van de locatie",
+        "hint": "Waar zou je het organiseren?"
+      },
+      "venueAddress": {
+        "label": "Adres van de locatie",
+        "hint": "Straat, nummer, postcode."
+      },
+      "venueKind": "Soort locatie",
+      "choose": "Kies…",
+      "message": "Nog iets dat we moeten weten? (optioneel)",
+      "messageHint": "Aantal consoles, hoeveel mensen er binnen kunnen, wie de avond zelf verantwoordelijk is…",
+      "publicVenue": "Ik bevestig dat dit een openbare locatie is (geen privéwoning) en dat ik er events mag organiseren.",
+      "sending": "Versturen…",
+      "submit": "Aanvraag versturen"
+    },
+    "venueKinds": {
+      "bar": "Bar of café",
+      "gaming_cafe": "Gamingcafé",
+      "student_association": "Lokaal van een studentenvereniging",
+      "other_public": "Andere openbare locatie"
+    },
+    "event": {
+      "newTitle": "Nieuwe launchavond",
+      "newLead": "Een moderator kijkt je event na voor het op de kaart verschijnt.",
+      "editTitle": "Launchavond aanpassen",
+      "fixErrors": "Sommige velden moeten aangepast worden. Ze zijn hieronder gemarkeerd.",
+      "editPublishedWarning": "Dit event staat online. Als je wijzigingen opslaat, gaat het opnieuw naar controle en verdwijnt het van de kaart tot een moderator het opnieuw nakijkt. Wie al ingeschreven is, houdt zijn plek.",
+      "venueHeading": "Locatie",
+      "venueChoice": "Kies een locatie",
+      "newVenue": "Nieuwe locatie toevoegen",
+      "venueName": "Naam van de locatie",
+      "venueAddress": "Adres",
+      "venueKind": "Soort locatie",
+      "choose": "Kies…",
+      "detailsHeading": "Details van het event",
+      "title": "Titel",
+      "description": "Beschrijving",
+      "descriptionHint": "Wat moeten mensen weten? Eten, drank, huisregels, eigen controller meebrengen…",
+      "date": "Datum",
+      "startTime": "Begint om",
+      "endTime": "Eindigt om",
+      "endTimeHint": "Eindigt het na middernacht? Kies gewoon het uur: we zetten het op de volgende dag.",
+      "timezone": "Uren zijn Antwerpse tijd.",
+      "platforms": "Platformen",
+      "consoleCount": "Consoles",
+      "capacity": "Plekken (mensen)",
+      "minAge": "Minimumleeftijd",
+      "minAgeOption": "{age}+",
+      "minAgeHint": "Schenk je alcohol? 16+ voor bier en wijn, 18+ voor sterkedrank.",
+      "publicVenue": "Ik bevestig dat dit een openbare locatie is, dat het event gratis toegankelijk is en open staat voor iedereen die de minimumleeftijd heeft.",
+      "saving": "Opslaan…",
+      "saveChanges": "Opslaan en laten nakijken",
+      "submit": "Laten nakijken",
+      "reviewNote": "Je krijgt een mail zodra het gepubliceerd is."
+    }
+  },
+  "venuePicker": {
+    "find": "Zoek het adres op de kaart",
+    "searching": "Zoeken…",
+    "dragHint": "Sleep de pin daarna naar de ingang als dat nodig is.",
+    "unavailable": "Adressen zoeken lukt nu niet. Sleep de pin naar de juiste plek of typ de coördinaten.",
+    "noResults": "Geen resultaat in de regio Antwerpen. Controleer het adres of sleep de pin.",
+    "results": "Gevonden adressen",
+    "mapLabel": "Kaart met een versleepbare pin voor de locatie",
+    "lat": "Breedtegraad",
+    "lng": "Lengtegraad",
+    "outside": "De pin moet in de regio Antwerpen staan."
+  },
+  "account": {
+    "title": "Je account",
+    "signedInAs": "Ingelogd als {email}",
+    "localeSaved": "Taal opgeslagen. We mailen je voortaan ook in deze taal.",
+    "bannedNotice": "Je account is geschorst: je kan je niet inschrijven, posten, melden of events organiseren. Je kan je account hieronder wel nog wissen.",
+    "goingHeading": "Je gaat naar",
+    "goingEmpty": "Nog geen komende inschrijvingen.",
+    "findEvent": "Zoek een launchavond",
+    "profileHeading": "Profiel",
+    "profilePrivacy": "Je schermnaam staat enkel op groepsborden, voor mensen die naar hetzelfde event gaan. Er zijn geen openbare profielen.",
+    "displayName": "Schermnaam",
+    "displayNameHint": "2 tot 40 tekens.",
+    "socialUrl": "Sociale link (optioneel)",
+    "socialUrlHint": "Enkel jij en de moderators zien dit.",
+    "saveProfile": "Profiel opslaan",
+    "profileSaved": "Profiel opgeslagen.",
+    "profileError": "Je profiel kon niet opgeslagen worden. Probeer opnieuw.",
+    "saving": "Opslaan…",
+    "dateOfBirth": "Geboortedatum (kan niet gewijzigd worden)",
+    "rules": "Community- & veiligheidsregels",
+    "rulesAcceptedOn": "Aanvaard op {date}",
+    "rulesNotAccepted": "Nog niet aanvaard",
+    "languageHeading": "Taal",
+    "languageLabel": "Taal van de website en de mails",
+    "saveLanguage": "Taal opslaan",
+    "organizeHeading": "Organiseren",
+    "organizerDashboard": "Naar je organisatoroverzicht",
+    "organizerApply": "Wil je een launchavond organiseren? Vraag het hier aan",
+    "signOut": "Uitloggen",
+    "deleteHeading": "Account wissen",
+    "deleteBody": "Dit wist je account meteen: je profiel, geboortedatum, inschrijvingen, berichten op groepsborden en aanvragen als organisator. Ben je organisator, dan verdwijnen ook je locaties en events en krijgen de ingeschreven mensen bericht. Dit kan niet ongedaan gemaakt worden.",
+    "deleteConfirm": "Ja, wis mijn account en al mijn gegevens.",
+    "deleteConfirmMissing": "Vink het vakje aan om te bevestigen.",
+    "deleteError": "Er ging iets mis bij het wissen van je account. Probeer opnieuw of mail ons.",
+    "deleting": "Wissen…",
+    "deleteButton": "Mijn account wissen"
+  },
+  "rulesPage": {
+    "title": "Community- & veiligheidsregels",
+    "beforeRsvp": "Voor je eerste inschrijving: lees deze regels en aanvaard ze onderaan de pagina.",
+    "acceptHeading": "Regels aanvaarden",
+    "thanks": "Bedankt! Je bent helemaal klaar.",
+    "unchecked": "Vink het vakje aan om de regels te aanvaarden.",
+    "failed": "Dat kon niet opgeslagen worden. Probeer opnieuw.",
+    "loginToAccept": "Log in om de regels te aanvaarden.",
+    "login": "Inloggen",
+    "acceptedOn": "Je aanvaardde deze regels op {date}.",
+    "backToEvent": "Terug naar het event",
+    "checkbox": "Ik heb de community- & veiligheidsregels gelezen en ik volg ze.",
+    "working": "Even geduld…",
+    "accept": "Regels aanvaarden",
+    "acceptAndRsvp": "Aanvaarden en inschrijven"
+  },
+  "organizer": {
+    "title": "Organiseren",
+    "pitchTitle": "Organiseer een launchavond",
+    "pitchBody": "Veel mensen hebben op launchavond geen PS5 of Xbox. Baat je een bar, gamingcafé of studentenlokaal uit in Antwerpen? Zet je deuren open en je event op de kaart.",
+    "pitchVenues": "Enkel openbare locaties: bars, cafés, gamingcafés, lokalen van studentenverenigingen.",
+    "pitchReview": "We controleren elke organisator en elk event voor het online komt.",
+    "pitchFree": "Gratis om op te lijsten, gratis om naartoe te gaan.",
+    "pitchSignup": "Maak een account om aan te vragen",
+    "pitchLogin": "Ik heb een account",
+    "applied": "Bedankt! Je aanvraag is binnen. Je krijgt een mail zodra een moderator ernaar gekeken heeft.",
+    "applicationPending": "Je aanvraag als {name} wacht op controle.",
+    "applicationRejected": "Je laatste aanvraag is niet goedgekeurd.",
+    "reason": "Reden: {reason}",
+    "applyButton": "Aanvragen om te organiseren",
+    "dashboardTitle": "Je events",
+    "newEvent": "Nieuw event",
+    "saved": "Opgeslagen en doorgestuurd voor controle. Je krijgt een mail zodra het gepubliceerd is.",
+    "cancelled": "Het event is geannuleerd. Wie ingeschreven was, kreeg een mail.",
+    "banned": "Je account is geschorst, dus je kan geen events aanmaken of aanpassen.",
+    "eventsHeading": "Events",
+    "noEvents": "Nog geen events. Maak je eerste launchavond!",
+    "hiddenTag": "Verborgen",
+    "going": "{going}/{capacity} ingeschreven",
+    "edit": "Aanpassen",
+    "working": "Even geduld…",
+    "cancel": "Event annuleren",
+    "venuesHeading": "Locaties",
+    "noVenues": "Je voegt je locatie toe als je je eerste event aanmaakt.",
+    "notVerified": "Nog niet geverifieerd"
+  },
+  "eventStatus": {
+    "pending": "Wacht op controle",
+    "published": "Gepubliceerd",
+    "rejected": "Niet goedgekeurd",
+    "cancelled": "Geannuleerd",
+    "removed": "Verwijderd"
+  },
+  "mfa": {
+    "title": "Tweestapsverificatie",
+    "verifyLead": "Voor de beheertools heb je een code uit je authenticator-app nodig.",
+    "enrollLead": "Beheerders moeten een authenticator-app (TOTP) gebruiken. Stel ze één keer in en geef bij elke login een code in.",
+    "code": "Code van 6 cijfers",
+    "verify": "Verifiëren",
+    "verifying": "Controleren…",
+    "invalid": "Die code werkte niet. Controleer het uur op je telefoon en probeer de nieuwste code.",
+    "startEnroll": "Authenticator-app instellen",
+    "enrollFailed": "Het instellen kon niet starten. Probeer opnieuw.",
+    "working": "Even geduld…",
+    "step1": "Scan de QR-code met een authenticator-app (bijvoorbeeld Aegis, 2FAS, Google Authenticator of 1Password).",
+    "step2": "Geef de code van 6 cijfers in die de app toont.",
+    "qrAlt": "QR-code voor je authenticator-app",
+    "manual": "Scannen lukt niet? Geef deze sleutel manueel in:"
+  },
+  "admin": {
+    "title": "Moderatie",
+    "done": "Klaar. Het is bijgehouden en de betrokkene kreeg een mail.",
+    "reason": "Reden (wordt bijgehouden en gemaild naar de betrokkene)",
+    "reasonHint": "Wees concreet en feitelijk. Zet er geen persoonsgegevens van anderen in.",
+    "working": "Bezig…",
+    "nav": {
+      "label": "Moderatie",
+      "overview": "Overzicht",
+      "reports": "Meldingen ({count})",
+      "applications": "Aanvragen ({count})",
+      "events": "Events ({count})",
+      "users": "Gebruikers",
+      "log": "Logboek"
+    },
+    "overview": {
+      "lead": "Veiligheidsmeldingen eerst. Elke actie vraagt een reden en wordt bijgehouden.",
+      "safety": "Open veiligheidsmeldingen",
+      "reports": "Alle open meldingen",
+      "applications": "Aanvragen om na te kijken",
+      "events": "Events om na te kijken",
+      "hidden": "Verborgen events",
+      "docs": "Reactietijden en berichtsjablonen staan in MODERATION.md; noodgevallen en politieverzoeken in INCIDENT.md."
+    },
+    "applications": {
+      "title": "Aanvragen als organisator",
+      "empty": "Geen aanvragen die wachten.",
+      "applicant": "Aanvrager",
+      "social": "Website / sociale media",
+      "venue": "Locatie",
+      "address": "Adres",
+      "message": "Bericht",
+      "submitted": "Ingediend",
+      "approve": "Goedkeuren",
+      "reject": "Afwijzen"
+    },
+    "events": {
+      "title": "Events",
+      "pendingHeading": "Wacht op controle ({count})",
+      "noPending": "Niets dat wacht.",
+      "allHeading": "Komend en recent",
+      "hidden": "Verborgen: {reason}",
+      "legalHold": "Legal hold",
+      "going": "{going}/{capacity} ingeschreven",
+      "verified": "geverifieerde locatie",
+      "notVerified": "locatie niet geverifieerd",
+      "actions": "Acties",
+      "publish": "Publiceren",
+      "reject": "Afwijzen",
+      "hide": "Verbergen",
+      "restore": "Weer tonen",
+      "remove": "Verwijderen",
+      "setHold": "Legal hold instellen",
+      "releaseHold": "Legal hold opheffen",
+      "verifyVenue": "Verificatiebadge toekennen",
+      "unverifyVenue": "Verificatiebadge intrekken"
+    },
+    "reports": {
+      "title": "Meldingen",
+      "lead": "Veiligheidsmeldingen staan bovenaan. Wat ze melden, is al verborgen.",
+      "empty": "Geen open meldingen.",
+      "targetEvent": "Event",
+      "targetPost": "Bericht op groepsbord",
+      "currentlyHidden": "Nu verborgen",
+      "postGone": "De auteur heeft dit bericht intussen verwijderd.",
+      "details": "Melder schreef",
+      "reportedBy": "Gemeld door {name}",
+      "deletedUser": "een gewist account",
+      "removeEvent": "Event verwijderen",
+      "removePost": "Bericht verwijderen",
+      "dismiss": "Afwijzen",
+      "dismissRestore": "Afwijzen en weer tonen",
+      "resolve": "Afhandelen, laten zoals het is",
+      "hidePost": "Bericht verbergen tijdens controle"
+    },
+    "users": {
+      "title": "Gebruikers",
+      "search": "Zoek op e-mail, schermnaam of gebruikers-id",
+      "searchPlaceholder": "naam@voorbeeld.be",
+      "searchButton": "Zoeken",
+      "noResults": "Geen gebruikers gevonden.",
+      "joined": "Lid sinds {date}",
+      "bannedSince": "Geschorst sinds {date}: {reason}",
+      "ban": "Account schorsen",
+      "unban": "Schorsing opheffen"
+    },
+    "log": {
+      "title": "Moderatielogboek",
+      "lead": "De laatste 200 beheeracties. Dit logboek kan niet aangepast worden.",
+      "when": "Wanneer",
+      "admin": "Beheerder",
+      "action": "Actie",
+      "target": "Doel",
+      "reason": "Reden"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "lead": "Vragen, feedback, een probleem met een event of je account? Mail ons. Meestal antwoorden we binnen een dag, rond de launch sneller.",
+    "emergencyTitle": "Noodgeval",
+    "emergencyBody": "Is iemand in gevaar? Mail ons dan niet eerst. Bel",
+    "safetyTitle": "Een probleem met een event of bericht melden",
+    "safetyBody": "Gebruik de meldknop bij het event of bericht. Veiligheidsmeldingen verbergen het meteen.",
+    "rulesLink": "Community- & veiligheidsregels",
+    "organizersTitle": "Locaties en organisatoren",
+    "organizersBody": "Wil je een launchavond organiseren in je bar, gamingcafé of studentenlokaal?",
+    "organizersLink": "Aanvragen om te organiseren",
+    "authoritiesTitle": "Politie en overheid",
+    "authoritiesBody": "Officiële verzoeken over een event of gebruiker: mail ons vanaf een officieel adres met een referentienummer. We delen gegevens enkel via de gepaste wettelijke weg.",
+    "privacyTitle": "Je gegevens",
+    "privacyBody": "Vragen over je gegevens of je rechten? Mail ons, of wis je account zelf in je accountinstellingen.",
+    "nonAffiliation": "Wanted Level is niet verbonden aan Rockstar Games of Take-Two Interactive."
+  }
+}

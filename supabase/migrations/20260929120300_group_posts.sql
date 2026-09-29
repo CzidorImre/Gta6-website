@@ -5,7 +5,9 @@ create table public.group_posts (
   id uuid primary key default gen_random_uuid(),
   event_id uuid not null references public.events (id) on delete cascade,
   user_id uuid not null default auth.uid() references public.profiles (id) on delete cascade,
-  display_name text not null,
+  -- Always overwritten from the profile by the insert trigger; the default only keeps the column
+  -- optional for clients (who aren't allowed to write it).
+  display_name text not null default '',
   note text not null check (char_length(btrim(note)) between 1 and 280),
   -- Discord usernames: 2–32 of a-z 0-9 _ . (legacy "#1234" suffix allowed). Optional, user's choice.
   discord_handle text check (discord_handle is null or discord_handle ~ '^[A-Za-z0-9_.]{2,32}(#[0-9]{4})?$'),

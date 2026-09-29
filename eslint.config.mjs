@@ -14,6 +14,8 @@ export default defineConfig([
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
       '@typescript-eslint/consistent-type-imports': ['error', { fixStyle: 'inline-type-imports' }],
       'no-console': ['error', { allow: ['warn', 'error', 'info'] }],
+      // Our labels wrap an input plus nested <span>s with the text.
+      'jsx-a11y/label-has-associated-control': ['error', { depth: 3 }],
     },
   },
   globalIgnores([

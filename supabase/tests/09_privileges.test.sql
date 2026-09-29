@@ -50,7 +50,7 @@ select set_eq(
     'can_post_on_board', 'require_active_user', 'require_admin', 'require_organizer',
     'accept_community_rules', 'rsvp_event', 'cancel_rsvp', 'save_venue', 'save_event', 'cancel_event',
     'admin_review_application', 'admin_review_event', 'admin_set_legal_hold', 'admin_set_venue_verified',
-    'admin_moderate_group_post', 'admin_resolve_report', 'admin_set_ban'
+    'admin_moderate_group_post', 'admin_resolve_report', 'admin_set_ban', 'admin_find_users'
   ],
   'signed-in users can execute only the documented functions (admin_* check MFA themselves)');
 

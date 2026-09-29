@@ -1,7 +1,7 @@
 -- Reports and moderation: safety reports hide instantly; reports and the moderation log are private;
 -- every admin action needs MFA and a reason and is logged. SPEC.md §3 reports/moderation_actions, §5.
 begin;
-select plan(30);
+select plan(33);
 
 -- ---- helpers (session-local, rolled back) ----------------------------------------------------
 create function pg_temp.new_user(p_id uuid, p_email text, p_dob date, p_name text default 'Test User')
@@ -145,6 +145,16 @@ select throws_ok(
   '42501', null, 'nobody can write to the moderation log directly');
 select pg_temp.act_as_anon();
 select throws_ok($$ select 1 from public.moderation_actions $$, '42501', null, 'anon cannot read the moderation log');
+
+-- User search (admin only, because it reads emails from auth.users) ------------------------------------
+select pg_temp.act_as('66666666-0000-4000-8000-00000000000b');
+select throws_ok($$ select * from public.admin_find_users('bob') $$, '42501', 'ADMIN_MFA_REQUIRED',
+  'regular users cannot search users or see emails');
+select pg_temp.act_as('66666666-0000-4000-8000-00000000000e', 'aal2');
+select results_eq($$ select email from public.admin_find_users('bob@t.') $$, $$ values ('bob@t.test'::text) $$,
+  'admins with MFA can find a user by email');
+select is_empty($$ select 1 from public.admin_find_users('%') $$,
+  'search input is matched literally (no LIKE wildcards)');
 
 -- Bans ------------------------------------------------------------------------------------------------
 select pg_temp.act_as('66666666-0000-4000-8000-00000000000e', 'aal2');

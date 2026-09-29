@@ -1,0 +1,27 @@
+<!doctype html>
+<!--
+  Supabase Auth "Magic link" template for Wanted Level.
+  Local: wired up in supabase/config.toml. Production: paste into
+  Supabase dashboard > Authentication > Email Templates > Magic link.
+  The link goes to /auth/confirm with a token_hash, so it works even if the
+  email opens in a different browser than the one that asked for it.
+-->
+<html lang="nl-BE">
+  <body style="margin:0;padding:24px;background:#0d0d14;color:#f4f4f8;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;">
+    <table role="presentation" width="100%" style="max-width:520px;margin:0 auto;">
+      <tr><td>
+        <p style="font-size:20px;font-weight:700;margin:0 0 16px;">&#9733; Wanted Level</p>
+        <p style="margin:0 0 8px;">Hier is je inloglink. Hij werkt één keer en vervalt na 1 uur.</p>
+        <p lang="en" style="margin:0 0 20px;color:#c9c9d6;">Here's your login link. It works once and expires after 1 hour.</p>
+        <p style="margin:0 0 24px;">
+          <a href="{{ .SiteURL }}/auth/confirm?token_hash={{ .TokenHash }}&type=email&next={{ .RedirectTo }}"
+             style="display:inline-block;background:#c8ff3d;color:#0d0d14;padding:14px 22px;border-radius:12px;font-weight:700;text-decoration:none;">
+            Inloggen / Log in
+          </a>
+        </p>
+        <p style="margin:0 0 4px;font-size:14px;color:#c9c9d6;">Niet aangevraagd? Negeer deze mail, er gebeurt niets.</p>
+        <p lang="en" style="margin:0;font-size:14px;color:#c9c9d6;">Didn't ask for this? Ignore this email and nothing happens.</p>
+      </td></tr>
+    </table>
+  </body>
+</html>

@@ -56,7 +56,8 @@ export default async function LocaleLayout({ children, params }: { children: Rea
           </main>
           <Footer />
         </NextIntlClientProvider>
-        <Analytics />
+        {/* Cookieless Vercel Web Analytics. Its script only exists on Vercel deployments. */}
+        {process.env.VERCEL === '1' ? <Analytics /> : null}
       </body>
     </html>
   );

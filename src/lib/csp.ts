@@ -10,9 +10,11 @@ export function buildCsp({ nonce, isDev }: { nonce: string; isDev: boolean }): s
       'script-src',
       ["'self'", `'nonce-${nonce}'`, "'strict-dynamic'", 'https://challenges.cloudflare.com', ...(isDev ? ["'unsafe-eval'"] : [])],
     ],
-    // <style> elements must carry the nonce (Next adds it to its own). style="" attributes are
-    // allowed: React and Leaflet set inline positions, and attribute styles can't run code.
-    ['style-src', ["'self'", `'nonce-${nonce}'`, ...(isDev ? ["'unsafe-inline'"] : [])]],
+    // Production: <style> elements must carry the nonce (Next adds it to its own). In development
+    // the dev server injects un-nonced <style> tags, and a nonce would make browsers ignore
+    // 'unsafe-inline', so dev uses 'unsafe-inline' alone. style="" attributes are always allowed:
+    // React and Leaflet set inline positions, and attribute styles can't run code.
+    ['style-src', isDev ? ["'self'", "'unsafe-inline'"] : ["'self'", `'nonce-${nonce}'`]],
     ['style-src-attr', ["'unsafe-inline'"]],
     ['img-src', ["'self'", 'data:', 'blob:', 'https://api.maptiler.com']],
     ['font-src', ["'self'"]],

@@ -31,10 +31,16 @@ describe('Content Security Policy', () => {
     expect(csp).not.toContain('openstreetmap.org');
   });
 
-  it('relaxes only what React needs in development', () => {
+  it('relaxes only what the dev server needs in development', () => {
     const dev = buildCsp({ nonce: 'x', isDev: true });
     expect(directive(dev, 'script-src')).toContain("'unsafe-eval'");
+    // A nonce would make browsers ignore 'unsafe-inline' for the dev server's <style> tags.
+    expect(directive(dev, 'style-src')).toBe("style-src 'self' 'unsafe-inline'");
     expect(dev).not.toContain('upgrade-insecure-requests');
+  });
+
+  it('never allows inline styles by default in production', () => {
+    expect(directive(csp, 'style-src')).toBe("style-src 'self' 'nonce-abc123'");
   });
 
   it('sends the other security headers', () => {

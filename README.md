@@ -63,7 +63,7 @@ Supabase Studio (database browser) is at http://127.0.0.1:54323.
 | `pnpm test` | unit tests (Vitest) |
 | `pnpm test:db` | database tests: RLS, functions, retention (`supabase test db`, pgTAP) |
 | `pnpm test:e2e` | end-to-end tests (Playwright; builds and starts the app, needs `pnpm supabase start`) |
-| `pnpm lighthouse` | mobile Lighthouse check on the map and an event page (app must be running) |
+| `pnpm lighthouse` | mobile Lighthouse check (median of 3 runs) on the map, the list and an event page (app must be running) |
 | `pnpm db:reset` | re-create the local database from migrations + seed |
 | `pnpm db:types` | regenerate `src/lib/supabase/database.types.ts` after a migration |
 | `pnpm supabase stop` | stop the local stack |

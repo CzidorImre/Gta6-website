@@ -91,7 +91,7 @@ Items that are built but could not be verified end to end from the build environ
 - [x] Extra: first RSVP via rules acceptance; keyboard navigation
 
 ## M13. Quality
-- [x] Mobile Lighthouse ≥ 90: 97 performance / 100 accessibility / 100 best practices / 100 SEO on the map page, the Dutch list and an event page (`pnpm lighthouse`, also in CI)
+- [x] Mobile Lighthouse ≥ 90: 97 performance / 100 accessibility / 100 best practices / 100 SEO on the map page, the Dutch list and an event page (`pnpm lighthouse`, median of 3 runs per page, also in CI)
 - [x] Keyboard navigation (skip link, filters, map pins, list) and contrast checks
 
 ## M14. Docs

@@ -32,16 +32,25 @@ export function brusselsOffsetMs(date: Date): number {
 
 /**
  * Converts a wall-clock date and time in Antwerp (what an organizer types) to an absolute instant.
- * During the autumn DST overlap the earlier instant is used; times skipped in spring move forward.
+ * During the autumn DST overlap (02:00-03:00 happens twice) the earlier instant is used; a time
+ * that doesn't exist (the spring-forward gap) moves forward, like most calendar apps do.
  */
 export function brusselsLocalToUtc(date: string, time: string): Date {
   const dm = /^(\d{4})-(\d{2})-(\d{2})$/.exec(date);
   const tm = /^(\d{2}):(\d{2})$/.exec(time);
   if (!dm || !tm) throw new Error('Invalid date or time');
-  const wall = Date.UTC(Number(dm[1]), Number(dm[2]) - 1, Number(dm[3]), Number(tm[1]), Number(tm[2]));
-  const firstGuess = wall - brusselsOffsetMs(new Date(wall));
-  const secondGuess = wall - brusselsOffsetMs(new Date(firstGuess));
-  return new Date(Math.min(firstGuess, secondGuess));
+  const [year, month, day, hour, minute] = [Number(dm[1]), Number(dm[2]), Number(dm[3]), Number(tm[1]), Number(tm[2])];
+  const wall = Date.UTC(year, month - 1, day, hour, minute);
+  // The offsets in use around this date (one in a normal week, two around a DST switch).
+  const offsets = [...new Set([brusselsOffsetMs(new Date(wall - 86_400_000)), brusselsOffsetMs(new Date(wall + 86_400_000))])];
+  const matches = offsets
+    .map((offset) => wall - offset)
+    .filter((candidate) => {
+      const p = brusselsParts(new Date(candidate));
+      return p.year === year && p.month === month && p.day === day && p.hour === hour && p.minute === minute;
+    })
+    .sort((a, b) => a - b);
+  return new Date(matches[0] ?? wall - Math.min(...offsets));
 }
 
 /** YYYY-MM-DD of an instant in Antwerp. */

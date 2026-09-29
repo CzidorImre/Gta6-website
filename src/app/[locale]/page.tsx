@@ -5,6 +5,7 @@ import { Countdown } from '@/components/Countdown';
 import { EventCard } from '@/components/EventCard';
 import { EventMapLoader } from '@/components/EventMapLoader';
 import type { MapEvent } from '@/components/EventMap';
+import { Notice } from '@/components/Notice';
 import { SafetyStrip } from '@/components/SafetyStrip';
 import { Star } from '@/components/Star';
 import { LAUNCH_AT } from '@/lib/constants';
@@ -18,7 +19,8 @@ type SearchParams = Promise<Record<string, string | string[] | undefined>>;
 
 export default async function HomePage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: SearchParams }) {
   const locale = await pageLocale(params);
-  const filters = parseFilters(await searchParams);
+  const query = await searchParams;
+  const filters = parseFilters(query);
   const [t, tEvent, tCountdown, format, now] = await Promise.all([
     getTranslations('home'),
     getTranslations('event'),
@@ -77,7 +79,8 @@ export default async function HomePage({ params, searchParams }: { params: Promi
         />
       </section>
 
-      <div className="container-page">
+      <div className="container-page flex flex-col gap-4">
+        {query.deleted === '1' ? <Notice variant="success">{t('deleted')}</Notice> : null}
         <SafetyStrip />
       </div>
 

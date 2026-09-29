@@ -112,46 +112,46 @@ export default async function EventPage({ params, searchParams }: { params: Para
 
       {/* Phones: facts, RSVP + safety, description, board. Desktop: RSVP + safety in a sidebar. */}
       <div className="mt-6 grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-start">
-          <dl className="card grid gap-5 p-5 sm:grid-cols-2 lg:col-start-1">
-            <Fact label={t('when')}>
-              <span className="font-semibold">
-                {format.dateTimeRange(start, end, { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' })}
+        <dl className="card grid gap-5 p-5 sm:grid-cols-2 lg:col-start-1">
+          <Fact label={t('when')}>
+            <span className="font-semibold">
+              {format.dateTimeRange(start, end, { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' })}
+            </span>
+            <span className="block text-sm text-muted">{t('timezoneNote')}</span>
+          </Fact>
+          <Fact label={t('where')}>
+            <span className="font-semibold">{venue.name}</span>
+            <span className="block">{venue.address}</span>
+            <span className="block text-sm text-muted">{tKinds(venue.kind)}</span>
+            {venue.verified ? (
+              <span className="mt-1 block">
+                <VerifiedBadge />
               </span>
-              <span className="block text-sm text-muted">{t('timezoneNote')}</span>
-            </Fact>
-            <Fact label={t('where')}>
-              <span className="font-semibold">{venue.name}</span>
-              <span className="block">{venue.address}</span>
-              <span className="block text-sm text-muted">{tKinds(venue.kind)}</span>
-              {venue.verified ? (
-                <span className="mt-1 block">
-                  <VerifiedBadge />
-                </span>
-              ) : null}
-              <a
-                className="link mt-1 flex min-h-11 items-center text-sm"
-                href={`https://www.openstreetmap.org/?mlat=${venue.lat}&mlon=${venue.lng}#map=18/${venue.lat}/${venue.lng}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {t('openInMaps')}
-              </a>
-            </Fact>
-            <Fact label={t('platforms')}>
-              <PlatformTags platforms={event.platforms} />
-            </Fact>
-            <Fact label={t('consoles')}>
-              <span className="font-semibold">{t('consoleCount', { count: event.consoleCount })}</span>
-            </Fact>
-            <Fact label={t('capacity')}>
-              <span className="font-semibold">
-                {t('capacityValue', { going: event.rsvpCount, capacity: event.capacity })}
-              </span>
-            </Fact>
-            <Fact label={t('minAge')}>
-              <span className="font-semibold">{t('minAgeValue', { age: event.minAge })}</span>
-            </Fact>
-          </dl>
+            ) : null}
+            <a
+              className="link mt-1 flex min-h-11 items-center text-sm"
+              href={`https://www.openstreetmap.org/?mlat=${venue.lat}&mlon=${venue.lng}#map=18/${venue.lat}/${venue.lng}`}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t('openInMaps')}
+            </a>
+          </Fact>
+          <Fact label={t('platforms')}>
+            <PlatformTags platforms={event.platforms} />
+          </Fact>
+          <Fact label={t('consoles')}>
+            <span className="font-semibold">{t('consoleCount', { count: event.consoleCount })}</span>
+          </Fact>
+          <Fact label={t('capacity')}>
+            <span className="font-semibold">
+              {t('capacityValue', { going: event.rsvpCount, capacity: event.capacity })}
+            </span>
+          </Fact>
+          <Fact label={t('minAge')}>
+            <span className="font-semibold">{t('minAgeValue', { age: event.minAge })}</span>
+          </Fact>
+        </dl>
 
         <div className="flex flex-col gap-6 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-3 lg:row-start-1">
           <section id="rsvp" aria-labelledby="rsvp-heading" className="card scroll-mt-4 p-5">
@@ -172,24 +172,24 @@ export default async function EventPage({ params, searchParams }: { params: Para
           <SafetyBox />
 
           <p>
-            <Link href={{ pathname: '/report', query: { type: 'event', id: event.id } }} className="inline-flex min-h-11 items-center font-semibold text-danger underline underline-offset-4">
+            <Link href={{ pathname: '/report', query: { type: 'event', id: event.id } }} className="inline-flex min-h-11 items-center font-semibold text-muted underline underline-offset-4 hover:text-text">
               {t('reportEvent')}
             </Link>
           </p>
         </div>
 
-          {event.description ? (
-            <section aria-labelledby="about-heading" className="card p-5 lg:col-start-1">
-              <h2 id="about-heading" className="text-2xl font-extrabold">
-                {t('about')}
-              </h2>
-              <p className="mt-3 whitespace-pre-line">{event.description}</p>
-            </section>
-          ) : null}
+        {event.description ? (
+          <section aria-labelledby="about-heading" className="max-w-prose lg:col-start-1">
+            <h2 id="about-heading" className="text-2xl font-extrabold">
+              {t('about')}
+            </h2>
+            <p className="mt-3 whitespace-pre-line text-lg">{event.description}</p>
+          </section>
+        ) : null}
 
-          <div className="lg:col-start-1">
-            <GroupBoard event={event} viewer={viewer} going={going} posts={posts} status={typeof query.board === 'string' ? query.board : null} />
-          </div>
+        <div className="lg:col-start-1">
+          <GroupBoard event={event} viewer={viewer} going={going} posts={posts} status={typeof query.board === 'string' ? query.board : null} />
+        </div>
       </div>
     </div>
   );
@@ -289,7 +289,7 @@ async function RsvpControls({ event, viewer, going }: { event: EventSummary; vie
 async function SafetyBox() {
   const t = await getTranslations('eventPage');
   return (
-    <section aria-labelledby="safety-heading" className="card p-5">
+    <section aria-labelledby="safety-heading">
       <h2 id="safety-heading" className="flex items-center gap-2 text-xl font-extrabold">
         <Star className="h-5 w-5 text-accent" />
         {t('safetyHeading')}
@@ -341,7 +341,7 @@ async function GroupBoard({
       <p className="mt-2 text-muted">{t('intro')}</p>
 
       {!canSee ? (
-        <p className="mt-4 rounded-xl border border-line bg-surface-2 p-4">{t('locked')}</p>
+        <p className="mt-4 rounded-xl border border-line bg-raised p-4">{t('locked')}</p>
       ) : (
         <div className="mt-4 flex flex-col gap-4">
           {statusMessage ? <Notice variant={status === 'saved' || status === 'deleted' ? 'success' : 'error'}>{statusMessage}</Notice> : null}
@@ -350,7 +350,7 @@ async function GroupBoard({
           ) : (
             <ul className="flex flex-col gap-3">
               {posts.map((post) => (
-                <li key={post.id} className="rounded-xl border border-line bg-surface-2 p-4">
+                <li key={post.id} className="rounded-xl border border-line bg-raised p-4">
                   <p className="font-bold">
                     {post.display_name}
                     {post.user_id === viewer?.userId ? <span className="ml-2 text-sm font-semibold text-muted">({t('you')})</span> : null}
@@ -365,7 +365,7 @@ async function GroupBoard({
                   {post.user_id !== viewer?.userId ? (
                     <Link
                       href={{ pathname: '/report', query: { type: 'group_post', id: post.id } }}
-                      className="mt-2 inline-flex min-h-11 items-center text-sm font-semibold text-danger underline underline-offset-4"
+                      className="mt-2 inline-flex min-h-11 items-center text-sm font-semibold text-muted underline underline-offset-4 hover:text-text"
                     >
                       {t('report')}
                     </Link>

@@ -52,7 +52,7 @@ export function Countdown({ target, serverNow, labels }: { target: string; serve
         {labels.title} {r.days} {labels.days}, {r.hours} {labels.hours}
       </p>
       {/* Phones: one compact line. Larger screens: tiles. */}
-      <p className="inline-flex items-baseline gap-2 rounded-full border border-line bg-surface-2 px-4 py-2 sm:hidden" aria-hidden="true">
+      <p className="inline-flex items-baseline gap-2 rounded-full border border-line bg-raised px-4 py-2 sm:hidden" aria-hidden="true">
         <span className="text-xs font-semibold uppercase tracking-wider text-muted">{labels.title}</span>
         <span className="font-display text-xl font-extrabold tabular-nums text-accent">
           {r.days}
@@ -66,7 +66,7 @@ export function Countdown({ target, serverNow, labels }: { target: string; serve
         <p className="mb-1.5 text-sm font-semibold uppercase tracking-wider text-muted">{labels.title}</p>
         <div className="flex gap-2">
           {units.map(([value, label]) => (
-            <div key={label} className="min-w-[4.25rem] rounded-2xl border border-line bg-surface-2 px-2 py-2 text-center">
+            <div key={label} className="min-w-[4.25rem] rounded-2xl border border-line bg-raised px-2 py-2 text-center">
               <span className="block font-display text-3xl font-extrabold tabular-nums text-accent">{String(value).padStart(2, '0')}</span>
               <span className="block text-xs font-semibold uppercase tracking-wide text-muted">{label}</span>
             </div>

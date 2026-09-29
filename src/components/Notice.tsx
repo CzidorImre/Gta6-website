@@ -3,10 +3,10 @@ import type { ReactNode } from 'react';
 type Variant = 'info' | 'success' | 'warning' | 'error';
 
 const styles: Record<Variant, string> = {
-  info: 'border-line bg-surface-2',
-  success: 'border-accent bg-surface-2',
-  warning: 'border-warn bg-surface-2',
-  error: 'border-danger bg-surface-2',
+  info: 'border-line bg-raised',
+  success: 'border-accent bg-raised',
+  warning: 'border-warn bg-raised',
+  error: 'border-danger bg-raised',
 };
 
 /** Status message. `role="status"` for polite announcements, `alert` for errors. */

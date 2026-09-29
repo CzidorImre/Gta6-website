@@ -182,7 +182,7 @@ export function EventForm({
           <div className="flex flex-wrap gap-2">
             {PLATFORMS.map((p) => (
               <label key={p} className="chip">
-                <input type="checkbox" name="platforms" value={p} defaultChecked={defaults.platforms?.includes(p) ?? true} className="h-5 w-5 accent-[var(--color-accent-ink)]" />
+                <input type="checkbox" name="platforms" value={p} defaultChecked={defaults.platforms?.includes(p) ?? true} className="h-5 w-5 accent-[var(--color-accent)]" />
                 {p === 'ps5' ? 'PS5' : 'Xbox Series X|S'}
               </label>
             ))}

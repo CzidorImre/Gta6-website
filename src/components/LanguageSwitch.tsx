@@ -20,7 +20,7 @@ export function LanguageSwitch() {
           hrefLang={l}
           aria-current={l === locale ? 'true' : undefined}
           className={`inline-flex min-h-10 min-w-11 items-center justify-center rounded-full px-2 text-sm font-bold ${
-            l === locale ? 'bg-accent text-accent-ink' : 'text-text'
+            l === locale ? 'bg-selected text-text' : 'text-muted hover:text-text'
           }`}
         >
           <span aria-hidden="true">{l === 'en' ? 'EN' : 'NL'}</span>

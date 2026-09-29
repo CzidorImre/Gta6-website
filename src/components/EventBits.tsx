@@ -5,7 +5,7 @@ import { Star } from './Star';
 const levelStyles: Record<SpotsLevel, string> = {
   plenty: 'bg-accent text-accent-ink',
   few: 'bg-warn text-accent-ink',
-  full: 'bg-surface-2 text-text border border-input',
+  full: 'bg-raised text-text border border-input',
 };
 
 export async function SpotsPill({ capacity, rsvpCount }: { capacity: number; rsvpCount: number }) {
@@ -36,8 +36,8 @@ export async function PlatformTags({ platforms }: { platforms: readonly string[]
 export async function VerifiedBadge() {
   const t = await getTranslations('event');
   return (
-    <span className="inline-flex items-center gap-1 text-sm font-semibold text-accent">
-      <Star className="h-4 w-4" />
+    <span className="inline-flex items-center gap-1 text-sm font-semibold text-text">
+      <Star className="h-4 w-4 text-accent" />
       {t('verifiedVenue')}
     </span>
   );

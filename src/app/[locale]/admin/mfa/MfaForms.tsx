@@ -62,7 +62,7 @@ export function MfaEnroll() {
         <img src={enrollment.qrCode} alt={t('qrAlt')} width={200} height={200} className="rounded-xl bg-white p-2" />
       ) : null}
       <p className="text-sm">
-        {t('manual')} <code className="break-all rounded bg-surface-2 px-2 py-1 font-mono">{enrollment.secret}</code>
+        {t('manual')} <code className="break-all rounded bg-raised px-2 py-1 font-mono">{enrollment.secret}</code>
       </p>
       <CodeForm initial={{ factorId: enrollment.factorId }} />
     </div>

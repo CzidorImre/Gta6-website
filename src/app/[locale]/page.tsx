@@ -97,7 +97,7 @@ export default async function HomePage({ params, searchParams }: { params: Promi
                 href={withFilters({ view })}
                 aria-current={filters.view === view ? 'page' : undefined}
                 className={`inline-flex min-h-11 min-w-20 items-center justify-center rounded-full px-4 font-bold ${
-                  filters.view === view ? 'bg-accent text-accent-ink' : ''
+                  filters.view === view ? 'bg-selected' : 'text-muted hover:text-text'
                 }`}
               >
                 {view === 'map' ? t('viewMap') : t('viewList')}
@@ -130,8 +130,8 @@ export default async function HomePage({ params, searchParams }: { params: Promi
           <p className="font-semibold" role="status">
             {t('resultCount', { count: events.length })}
           </p>
-          <Link href="/rules" className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-accent underline-offset-4 hover:underline">
-            <Star className="h-4 w-4" />
+          <Link href="/rules" className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-muted underline-offset-4 hover:text-text hover:underline">
+            <Star className="h-4 w-4 text-accent" />
             {t('safetyShort')}
           </Link>
         </div>

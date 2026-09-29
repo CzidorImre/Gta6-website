@@ -7,7 +7,10 @@
 @theme {
   --color-bg: #0b0b12;
   --color-surface: #15151f;
-  --color-surface-2: #1e1e2b;
+  --color-raised: #1e1e2b;
+  /* Selected state of toggles and filter chips: neutral, so the accent stays for actions and
+     status. ≥ 3:1 against bg and surface, text on it 5.3:1. */
+  --color-selected: #62627e;
   --color-line: #2e2e42;
   --color-input: #7a7a96;
   --color-text: #f2f2f7;
@@ -21,6 +24,8 @@
   --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 
   --radius-card: 1.25rem;
+
+  --ease-press: cubic-bezier(0.2, 0, 0, 1);
 }
 
 @layer base {
@@ -43,6 +48,9 @@
     line-height: 1.1;
     letter-spacing: -0.01em;
     text-wrap: balance;
+  }
+  h1 {
+    letter-spacing: -0.02em;
   }
   a {
     color: inherit;
@@ -94,7 +102,10 @@
     border-radius: 999px;
     font-weight: 700;
     text-decoration: none;
-    transition: transform 0.1s ease, background-color 0.15s ease;
+    transition:
+      transform 120ms var(--ease-press),
+      background-color 150ms var(--ease-press),
+      border-color 150ms var(--ease-press);
     cursor: pointer;
   }
   .btn:active {
@@ -111,13 +122,27 @@
     color: var(--color-accent-ink);
   }
   .btn-secondary {
-    background: var(--color-surface-2);
+    background: var(--color-raised);
     color: var(--color-text);
     border: 1px solid var(--color-input);
   }
   .btn-danger {
     background: var(--color-danger);
     color: var(--color-accent-ink);
+  }
+  @media (hover: hover) {
+    .btn-primary:not(:disabled, [aria-disabled='true']):hover {
+      background: color-mix(in oklab, var(--color-accent) 82%, white);
+    }
+    .btn-secondary:not(:disabled, [aria-disabled='true']):hover {
+      border-color: var(--color-text);
+    }
+    .btn-danger:not(:disabled, [aria-disabled='true']):hover {
+      background: color-mix(in oklab, var(--color-danger) 82%, white);
+    }
+    .chip:hover {
+      border-color: var(--color-text);
+    }
   }
   .field-label {
     display: block;
@@ -165,13 +190,18 @@
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
+    transition:
+      transform 120ms var(--ease-press),
+      border-color 150ms var(--ease-press);
+  }
+  .chip:active {
+    transform: scale(0.97);
   }
   .chip[aria-pressed='true'],
   .chip[aria-current='true'],
   .chip:has(input:checked) {
-    background: var(--color-accent);
-    color: var(--color-accent-ink);
-    border-color: var(--color-accent);
+    background: var(--color-selected);
+    border-color: var(--color-selected);
   }
   .tag {
     display: inline-flex;
@@ -179,7 +209,7 @@
     gap: 0.25rem;
     padding: 0.125rem 0.625rem;
     border-radius: 999px;
-    background: var(--color-surface-2);
+    background: var(--color-raised);
     border: 1px solid var(--color-line);
     font-size: 0.8125rem;
     font-weight: 700;
@@ -200,18 +230,18 @@
 
 /* Leaflet: dark UI chrome to match the theme (html prefix beats leaflet.css, which loads later). */
 html .leaflet-container {
-  background: #10101a;
+  background: var(--color-surface);
   font-family: var(--font-sans);
 }
 .leaflet-control-attribution {
-  background: rgba(11, 11, 18, 0.8) !important;
+  background: color-mix(in srgb, var(--color-bg) 80%, transparent) !important;
   color: var(--color-muted) !important;
 }
 .leaflet-control-attribution a {
   color: var(--color-text) !important;
 }
 .leaflet-bar a {
-  background: var(--color-surface-2) !important;
+  background: var(--color-raised) !important;
   color: var(--color-text) !important;
   border-color: var(--color-line) !important;
   width: 2.75rem !important;

@@ -1,22 +1,28 @@
 @import 'tailwindcss';
 
 /*
- * Wanted Level design tokens. Dark theme, one accent (acid lime). Every text colour below passes
- * WCAG 2.1 AA on every surface (checked: muted ≥ 7:1, accent ≥ 13:1, input borders ≥ 3:1).
+ * Wanted Level design tokens. Dark theme on neutral graphite (after Apple's dark system colours),
+ * one accent (acid lime). Structure comes from tonal steps (bg → surface → raised) and fills, not
+ * borders; borders stay where WCAG needs a visible boundary (inputs, 3:1).
+ * Contrast, checked: text ≥ 12.8:1 and muted ≥ 4.85:1 on every surface; accent ≥ 11.8:1;
+ * input borders ≥ 3.35:1; selected ≥ 3.35:1 against bg, surface and fill; text on selected 4.66:1.
  */
 @theme {
-  --color-bg: #0b0b12;
-  --color-surface: #15151f;
-  --color-raised: #1e1e2b;
+  --color-bg: #000000;
+  --color-surface: #1c1c1e;
+  --color-raised: #2c2c2e;
+  /* Translucent grey for secondary buttons, chips, tags and segmented tracks. */
+  --color-fill: rgb(118 118 128 / 0.24);
+  --color-fill-hover: rgb(118 118 128 / 0.36);
   /* Selected state of toggles and filter chips: neutral, so the accent stays for actions and
-     status. ≥ 3:1 against bg and surface, text on it 5.3:1. */
-  --color-selected: #62627e;
-  --color-line: #2e2e42;
-  --color-input: #7a7a96;
-  --color-text: #f2f2f7;
-  --color-muted: #a9a9bd;
+     status. */
+  --color-selected: #6e6e73;
+  --color-line: #38383a;
+  --color-input: #7c7c80;
+  --color-text: #f5f5f7;
+  --color-muted: #98989d;
   --color-accent: #c6ff3d;
-  --color-accent-ink: #0b0b12;
+  --color-accent-ink: #000000;
   --color-warn: #ffb84d;
   --color-danger: #ff7a7a;
 
@@ -84,7 +90,8 @@
   }
   .card {
     background: var(--color-surface);
-    border: 1px solid var(--color-line);
+    /* Transparent so hover/focus borders can appear without shifting layout. */
+    border: 1px solid transparent;
     border-radius: var(--radius-card);
   }
   .link {
@@ -122,9 +129,9 @@
     color: var(--color-accent-ink);
   }
   .btn-secondary {
-    background: var(--color-raised);
+    background: var(--color-fill);
     color: var(--color-text);
-    border: 1px solid var(--color-input);
+    border: 1px solid transparent;
   }
   .btn-danger {
     background: var(--color-danger);
@@ -135,13 +142,13 @@
       background: color-mix(in oklab, var(--color-accent) 82%, white);
     }
     .btn-secondary:not(:disabled, [aria-disabled='true']):hover {
-      border-color: var(--color-text);
+      background: var(--color-fill-hover);
     }
     .btn-danger:not(:disabled, [aria-disabled='true']):hover {
       background: color-mix(in oklab, var(--color-danger) 82%, white);
     }
-    .chip:hover {
-      border-color: var(--color-text);
+    .chip:not([aria-current='true'], :has(input:checked)):hover {
+      background: var(--color-fill-hover);
     }
   }
   .field-label {
@@ -166,7 +173,7 @@
     width: 100%;
     min-height: 3rem;
     padding: 0.625rem 0.875rem;
-    background: var(--color-bg);
+    background: var(--color-raised);
     color: var(--color-text);
     border: 1px solid var(--color-input);
     border-radius: 0.75rem;
@@ -185,14 +192,14 @@
     min-height: 2.75rem;
     padding: 0.5rem 1rem;
     border-radius: 999px;
-    border: 1px solid var(--color-input);
-    background: var(--color-surface);
+    border: 1px solid transparent;
+    background: var(--color-fill);
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
     transition:
       transform 120ms var(--ease-press),
-      border-color 150ms var(--ease-press);
+      background-color 150ms var(--ease-press);
   }
   .chip:active {
     transform: scale(0.97);
@@ -201,7 +208,6 @@
   .chip[aria-current='true'],
   .chip:has(input:checked) {
     background: var(--color-selected);
-    border-color: var(--color-selected);
   }
   .tag {
     display: inline-flex;
@@ -209,8 +215,7 @@
     gap: 0.25rem;
     padding: 0.125rem 0.625rem;
     border-radius: 999px;
-    background: var(--color-raised);
-    border: 1px solid var(--color-line);
+    background: var(--color-fill);
     font-size: 0.8125rem;
     font-weight: 700;
     letter-spacing: 0.01em;

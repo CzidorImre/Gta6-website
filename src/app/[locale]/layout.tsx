@@ -23,7 +23,7 @@ const display = localFont({
 const CLIENT_NAMESPACES = ['nav', 'forms', 'form', 'errors', 'venuePicker', 'account', 'mfa'] as const;
 
 export const viewport: Viewport = {
-  themeColor: '#0b0b12',
+  themeColor: '#000000',
   colorScheme: 'dark',
 };
 

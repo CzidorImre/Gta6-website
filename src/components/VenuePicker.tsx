@@ -43,7 +43,7 @@ export function VenuePicker({ initialLat, initialLng, tileUrl, attribution, addr
         keyboard: false,
         icon: L.divIcon({
           className: 'wl-pin',
-          html: '<svg width="40" height="48" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 46c-1 0-1.8-.5-2.3-1.3C12.8 37.2 5 28.6 5 19.5 5 11 11.7 4 20 4s15 7 15 15.5c0 9.1-7.8 17.7-12.7 25.2-.5.8-1.3 1.3-2.3 1.3Z" fill="#c6ff3d" stroke="#0b0b12" stroke-width="2"/></svg>',
+          html: '<svg width="40" height="48" viewBox="0 0 40 48" aria-hidden="true"><path d="M20 46c-1 0-1.8-.5-2.3-1.3C12.8 37.2 5 28.6 5 19.5 5 11 11.7 4 20 4s15 7 15 15.5c0 9.1-7.8 17.7-12.7 25.2-.5.8-1.3 1.3-2.3 1.3Z" fill="#c6ff3d" stroke="#000000" stroke-width="2"/></svg>',
           iconSize: [40, 48],
           iconAnchor: [20, 46],
         }),

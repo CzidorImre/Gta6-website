@@ -90,7 +90,7 @@ export default async function HomePage({ params, searchParams }: { params: Promi
           <h2 id="events-heading" className="text-2xl font-extrabold sm:text-3xl">
             {t('eventsHeading')}
           </h2>
-          <nav aria-label={t('viewLabel')} className="flex rounded-full border border-input p-1">
+          <nav aria-label={t('viewLabel')} className="flex rounded-full bg-fill p-1">
             {(['map', 'list'] as const).map((view) => (
               <Link
                 key={view}
@@ -182,7 +182,7 @@ export default async function HomePage({ params, searchParams }: { params: Promi
 function FilterRow({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div className="-mx-4 flex items-center gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
-      <span className="mr-1 shrink-0 text-xs font-semibold uppercase tracking-wider text-muted">{label}</span>
+      <span className="mr-1 shrink-0 text-sm font-medium text-muted">{label}</span>
       {children}
     </div>
   );

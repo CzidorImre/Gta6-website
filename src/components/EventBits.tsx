@@ -3,9 +3,9 @@ import { spotsLeft, spotsLevel, type SpotsLevel } from '@/lib/spots';
 import { Star } from './Star';
 
 const levelStyles: Record<SpotsLevel, string> = {
-  plenty: 'bg-accent text-accent-ink',
-  few: 'bg-warn text-accent-ink',
-  full: 'bg-raised text-text border border-input',
+  plenty: 'bg-accent/16 text-accent',
+  few: 'bg-warn/16 text-warn',
+  full: 'bg-fill text-text',
 };
 
 export async function SpotsPill({ capacity, rsvpCount }: { capacity: number; rsvpCount: number }) {

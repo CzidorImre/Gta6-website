@@ -203,7 +203,7 @@ async function errorMessage(code: ErrorCode): Promise<string> {
 function Fact({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
-      <dt className="text-sm font-semibold uppercase tracking-wider text-muted">{label}</dt>
+      <dt className="text-sm font-medium text-muted">{label}</dt>
       <dd className="mt-1">{children}</dd>
     </div>
   );
@@ -341,7 +341,7 @@ async function GroupBoard({
       <p className="mt-2 text-muted">{t('intro')}</p>
 
       {!canSee ? (
-        <p className="mt-4 rounded-xl border border-line bg-raised p-4">{t('locked')}</p>
+        <p className="mt-4 rounded-xl bg-raised p-4">{t('locked')}</p>
       ) : (
         <div className="mt-4 flex flex-col gap-4">
           {statusMessage ? <Notice variant={status === 'saved' || status === 'deleted' ? 'success' : 'error'}>{statusMessage}</Notice> : null}
@@ -350,7 +350,7 @@ async function GroupBoard({
           ) : (
             <ul className="flex flex-col gap-3">
               {posts.map((post) => (
-                <li key={post.id} className="rounded-xl border border-line bg-raised p-4">
+                <li key={post.id} className="rounded-xl bg-raised p-4">
                   <p className="font-bold">
                     {post.display_name}
                     {post.user_id === viewer?.userId ? <span className="ml-2 text-sm font-semibold text-muted">({t('you')})</span> : null}

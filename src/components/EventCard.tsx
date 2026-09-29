@@ -16,7 +16,7 @@ export async function EventCard({ event, headingLevel = 'h3' }: { event: EventSu
     minute: '2-digit',
   });
   return (
-    <article className="card relative flex flex-col gap-3 p-4 transition-colors focus-within:border-accent hover:border-input">
+    <article className="card relative flex flex-col gap-3 p-4 transition-colors focus-within:border-accent hover:bg-raised">
       <div className="flex items-start justify-between gap-2">
         <SpotsPill capacity={event.capacity} rsvpCount={event.rsvpCount} />
         <AgeTag minAge={event.minAge} />

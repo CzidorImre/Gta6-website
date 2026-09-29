@@ -40,7 +40,7 @@ export default async function ReportPage({
   return (
     <div className="container-page max-w-2xl py-10">
       <h1 className="text-4xl font-extrabold">{type === 'event' ? t('titleEvent') : t('titlePost')}</h1>
-      <p className="mt-3 rounded-xl border border-line bg-raised p-3 font-semibold">{summary}</p>
+      <p className="mt-3 rounded-xl bg-raised p-3 font-semibold">{summary}</p>
       <p className="mt-4 text-muted">{t('lead')}</p>
       <p className="mt-2 font-semibold">
         {t('emergency')}{' '}

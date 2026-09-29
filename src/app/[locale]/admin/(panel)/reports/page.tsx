@@ -54,7 +54,7 @@ export default async function AdminReportsPage({ params, searchParams }: { param
                   </Link>
                 </h2>
                 {snapshot ? (
-                  <blockquote className="mt-3 rounded-xl border border-line bg-raised p-3">
+                  <blockquote className="mt-3 rounded-xl bg-raised p-3">
                     <p className="font-bold">{snapshot.display_name}</p>
                     <p className="whitespace-pre-line">{snapshot.note}</p>
                     {snapshot.discord_handle ? <p className="text-sm text-muted">Discord: {snapshot.discord_handle}</p> : null}

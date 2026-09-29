@@ -10,7 +10,7 @@ export function LanguageSwitch() {
   const locale = useLocale();
   const pathname = usePathname();
   return (
-    <nav aria-label={t('language')} className="flex rounded-full border border-input p-0.5">
+    <nav aria-label={t('language')} className="flex rounded-full bg-fill p-0.5">
       {routing.locales.map((l) => (
         <Link
           key={l}

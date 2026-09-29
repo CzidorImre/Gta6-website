@@ -27,9 +27,9 @@ export interface MapLabels {
 }
 
 const PIN_COLORS: Record<SpotsLevel, { bg: string; fg: string; border: string }> = {
-  plenty: { bg: '#c6ff3d', fg: '#0b0b12', border: '#0b0b12' },
-  few: { bg: '#ffb84d', fg: '#0b0b12', border: '#0b0b12' },
-  full: { bg: '#2a2a3c', fg: '#f2f2f7', border: '#7a7a96' },
+  plenty: { bg: '#c6ff3d', fg: '#000000', border: '#000000' },
+  few: { bg: '#ffb84d', fg: '#000000', border: '#000000' },
+  full: { bg: '#2c2c2e', fg: '#f5f5f7', border: '#7c7c80' },
 };
 
 /**

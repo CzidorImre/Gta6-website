@@ -68,13 +68,13 @@ export function renderEmail(kind: EmailKind, locale: EmailLocale, values: EmailV
     .join('\n\n');
 
   const html = `<!doctype html>
-<html lang="${locale}"><body style="margin:0;padding:24px;background:#0b0b12;color:#f2f2f7;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5">
+<html lang="${locale}"><body style="margin:0;padding:24px;background:#000000;color:#f5f5f7;font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5">
 <table role="presentation" width="100%" style="max-width:560px;margin:0 auto"><tr><td>
 <p style="font-size:20px;font-weight:800;margin:0 0 20px">&#9733; Wanted Level</p>
 ${paragraphs.map((p) => `<p style="margin:0 0 14px">${escapeHtml(p)}</p>`).join('\n')}
-${reasonLine ? `<p style="margin:0 0 14px;padding:12px 14px;background:#15151f;border-left:4px solid #c6ff3d">${escapeHtml(reasonLine)}</p>` : ''}
-${values.url ? `<p style="margin:20px 0"><a href="${escapeHtml(values.url)}" style="display:inline-block;background:#c6ff3d;color:#0b0b12;padding:12px 20px;border-radius:999px;font-weight:700;text-decoration:none">${escapeHtml(cta)}</a></p>` : ''}
-<p style="margin:24px 0 0;font-size:13px;color:#a9a9bd">${escapeHtml(footer)}</p>
+${reasonLine ? `<p style="margin:0 0 14px;padding:12px 14px;background:#1c1c1e;border-radius:12px">${escapeHtml(reasonLine)}</p>` : ''}
+${values.url ? `<p style="margin:20px 0"><a href="${escapeHtml(values.url)}" style="display:inline-block;background:#c6ff3d;color:#000000;padding:12px 20px;border-radius:999px;font-weight:700;text-decoration:none">${escapeHtml(cta)}</a></p>` : ''}
+<p style="margin:24px 0 0;font-size:13px;color:#98989d">${escapeHtml(footer)}</p>
 </td></tr></table></body></html>`;
 
   return { subject, text, html };

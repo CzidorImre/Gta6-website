@@ -1,4 +1,5 @@
-import { getFormatter, getNow, getTranslations } from 'next-intl/server';
+import { getNow, getTranslations } from 'next-intl/server';
+import { getAppFormatter } from '@/i18n/format';
 import { localePrefix, pageLocale } from '@/i18n/page-locale';
 import { Link } from '@/i18n/navigation';
 import { Countdown } from '@/components/Countdown';
@@ -25,7 +26,7 @@ export default async function HomePage({ params, searchParams }: { params: Promi
     getTranslations('home'),
     getTranslations('event'),
     getTranslations('countdown'),
-    getFormatter(),
+    getAppFormatter(),
     getNow(),
   ]);
 
@@ -56,14 +57,14 @@ export default async function HomePage({ params, searchParams }: { params: Promi
 
   return (
     <>
-      <section className="container-page grid gap-8 py-8 md:grid-cols-[1.3fr_1fr] md:items-end md:py-12">
+      <section className="container-page grid gap-4 pt-4 pb-1 md:grid-cols-[1.3fr_1fr] md:items-end md:gap-8 md:py-12">
         <div>
-          <p className="mb-3 inline-flex items-center gap-2 font-semibold text-accent">
+          <p className="mb-2 inline-flex items-center gap-2 text-sm font-semibold text-accent sm:text-base">
             <Star className="h-5 w-5" />
             {t('kicker')}
           </p>
-          <h1 className="text-4xl font-extrabold sm:text-5xl">{t('headline')}</h1>
-          <p className="mt-4 max-w-prose text-lg text-muted">{t('lead')}</p>
+          <h1 className="text-[1.75rem] font-extrabold sm:text-5xl">{t('headline')}</h1>
+          <p className="mt-2 max-w-prose text-muted sm:mt-3 sm:text-lg">{t('lead')}</p>
         </div>
         <Countdown
           target={LAUNCH_AT}
@@ -77,16 +78,16 @@ export default async function HomePage({ params, searchParams }: { params: Promi
             launched: tCountdown('launched'),
           }}
         />
+        {query.deleted === '1' ? (
+          <div className="md:col-span-2">
+            <Notice variant="success">{t('deleted')}</Notice>
+          </div>
+        ) : null}
       </section>
 
-      <div className="container-page flex flex-col gap-4">
-        {query.deleted === '1' ? <Notice variant="success">{t('deleted')}</Notice> : null}
-        <SafetyStrip />
-      </div>
-
-      <section aria-labelledby="events-heading" className="container-page mt-10">
+      <section aria-labelledby="events-heading" className="container-page mt-6 md:mt-4">
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <h2 id="events-heading" className="text-3xl font-extrabold">
+          <h2 id="events-heading" className="text-2xl font-extrabold sm:text-3xl">
             {t('eventsHeading')}
           </h2>
           <nav aria-label={t('viewLabel')} className="flex rounded-full border border-input p-1">
@@ -105,7 +106,7 @@ export default async function HomePage({ params, searchParams }: { params: Promi
           </nav>
         </div>
 
-        <div className="mt-5 flex flex-col gap-3" role="group" aria-label={t('filtersLabel')}>
+        <div className="mt-4 flex flex-col gap-2" role="group" aria-label={t('filtersLabel')}>
           <FilterRow label={t('filterDate')}>
             <FilterChip href={withFilters({ date: null })} active={filters.date === null} label={t('allDates')} />
             {dates.map((d) => (
@@ -125,12 +126,18 @@ export default async function HomePage({ params, searchParams }: { params: Promi
           </FilterRow>
         </div>
 
-        <p className="mt-5 font-semibold" role="status">
-          {t('resultCount', { count: events.length })}
-        </p>
+        <div className="mt-4 flex flex-wrap items-center justify-between gap-2">
+          <p className="font-semibold" role="status">
+            {t('resultCount', { count: events.length })}
+          </p>
+          <Link href="/rules" className="inline-flex min-h-11 items-center gap-1.5 text-sm font-semibold text-accent underline-offset-4 hover:underline">
+            <Star className="h-4 w-4" />
+            {t('safetyShort')}
+          </Link>
+        </div>
 
         {filters.view === 'map' ? (
-          <div className="mt-4">
+          <div className="mt-3">
             <Link href={withFilters({ view: 'list' })} className="sr-only-focusable btn btn-secondary mb-3">
               {t('skipMap')}
             </Link>
@@ -163,14 +170,19 @@ export default async function HomePage({ params, searchParams }: { params: Promi
           </ul>
         )}
       </section>
+
+      <div className="container-page mt-10">
+        <SafetyStrip />
+      </div>
     </>
   );
 }
 
+/** One line per filter group; scrolls sideways on narrow screens instead of wrapping. */
 function FilterRow({ label, children }: { label: string; children: React.ReactNode }) {
   return (
-    <div className="flex flex-wrap items-center gap-2">
-      <span className="mr-1 text-sm font-semibold uppercase tracking-wider text-muted">{label}</span>
+    <div className="-mx-4 flex items-center gap-2 overflow-x-auto px-4 pb-1 sm:mx-0 sm:flex-wrap sm:overflow-visible sm:px-0">
+      <span className="mr-1 shrink-0 text-xs font-semibold uppercase tracking-wider text-muted">{label}</span>
       {children}
     </div>
   );
@@ -178,7 +190,7 @@ function FilterRow({ label, children }: { label: string; children: React.ReactNo
 
 function FilterChip({ href, active, label }: { href: { pathname: '/'; query: Record<string, string> }; active: boolean; label: string }) {
   return (
-    <Link href={href} className="chip" aria-current={active ? 'true' : undefined} scroll={false}>
+    <Link href={href} className="chip shrink-0 whitespace-nowrap" aria-current={active ? 'true' : undefined} scroll={false}>
       {label}
     </Link>
   );

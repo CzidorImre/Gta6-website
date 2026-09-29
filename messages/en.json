@@ -51,7 +51,8 @@
     "emptyFiltered": "Nothing matches these filters. Try another date or platform.",
     "emptyHost": "Run a bar, gaming café or student association?",
     "emptyHostLink": "Host a launch night",
-    "deleted": "Your account and everything linked to it have been deleted. Take care!"
+    "deleted": "Your account and everything linked to it have been deleted. Take care!",
+    "safetyShort": "Public venues only · every event checked"
   },
   "countdown": {
     "title": "Launch in",

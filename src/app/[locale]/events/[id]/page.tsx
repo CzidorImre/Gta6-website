@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import { getFormatter, getNow, getTranslations } from 'next-intl/server';
+import { getNow, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { getAppFormatter } from '@/i18n/format';
 import { pageLocale } from '@/i18n/page-locale';
 import { AgeTag, PlatformTags, SpotsPill, VerifiedBadge } from '@/components/EventBits';
 import { Notice } from '@/components/Notice';
-import { SafetyStrip } from '@/components/SafetyStrip';
 import { Star } from '@/components/Star';
 import { SubmitButton } from '@/components/SubmitButton';
 import { getViewer, type Viewer } from '@/lib/auth';
@@ -45,7 +45,7 @@ export default async function EventPage({ params, searchParams }: { params: Para
   const event = await getEvent(id);
   if (!event || !event.venue) notFound();
 
-  const [t, format, viewer] = await Promise.all([getTranslations('eventPage'), getFormatter(), getViewer()]);
+  const [t, format, viewer] = await Promise.all([getTranslations('eventPage'), getAppFormatter(), getViewer()]);
   const tKinds = await getTranslations('venueKinds');
   const supabase = await createClient();
 
@@ -76,19 +76,21 @@ export default async function EventPage({ params, searchParams }: { params: Para
   const errorCode = typeof query.error === 'string' && (KNOWN_ERROR_CODES as readonly string[]).includes(query.error) ? (query.error as ErrorCode) : null;
 
   return (
-    <div className="container-page py-8">
+    <div className="container-page py-5">
       <Link href="/" className="inline-flex min-h-11 items-center font-semibold underline-offset-4 hover:underline">
         ← {t('back')}
       </Link>
 
-      <div className="mt-4 flex flex-col gap-3">
-        {event.cancelled ? <Notice variant="warning">{t('cancelled')}</Notice> : null}
-        {event.hidden && (isOwner || viewer?.aal === 'aal2') ? <Notice variant="warning">{t('hiddenNotice')}</Notice> : null}
-        {event.status === 'pending' ? <Notice variant="info">{event.publishedBefore ? t('reReview') : t('pendingNotice')}</Notice> : null}
-        {event.status === 'rejected' || event.status === 'removed' ? <Notice variant="error">{t('notPublic')}</Notice> : null}
-      </div>
+      {event.cancelled || event.hidden || event.status !== 'published' ? (
+        <div className="mt-3 flex flex-col gap-3">
+          {event.cancelled ? <Notice variant="warning">{t('cancelled')}</Notice> : null}
+          {event.hidden && (isOwner || viewer?.aal === 'aal2') ? <Notice variant="warning">{t('hiddenNotice')}</Notice> : null}
+          {event.status === 'pending' ? <Notice variant="info">{event.publishedBefore ? t('reReview') : t('pendingNotice')}</Notice> : null}
+          {event.status === 'rejected' || event.status === 'removed' ? <Notice variant="error">{t('notPublic')}</Notice> : null}
+        </div>
+      ) : null}
 
-      <header className="mt-6">
+      <header className="mt-4">
         <div className="flex flex-wrap items-center gap-2">
           <SpotsPill capacity={event.capacity} rsvpCount={event.rsvpCount} />
           <AgeTag minAge={event.minAge} />
@@ -108,9 +110,9 @@ export default async function EventPage({ params, searchParams }: { params: Para
         ) : null}
       </header>
 
-      <div className="mt-8 grid gap-6 lg:grid-cols-[1.4fr_1fr]">
-        <div className="flex flex-col gap-6">
-          <dl className="card grid gap-5 p-5 sm:grid-cols-2">
+      {/* Phones: facts, RSVP + safety, description, board. Desktop: RSVP + safety in a sidebar. */}
+      <div className="mt-6 grid gap-6 lg:grid-cols-[1.4fr_1fr] lg:items-start">
+          <dl className="card grid gap-5 p-5 sm:grid-cols-2 lg:col-start-1">
             <Fact label={t('when')}>
               <span className="font-semibold">
                 {format.dateTimeRange(start, end, { weekday: 'long', day: 'numeric', month: 'long', hour: '2-digit', minute: '2-digit' })}
@@ -121,9 +123,13 @@ export default async function EventPage({ params, searchParams }: { params: Para
               <span className="font-semibold">{venue.name}</span>
               <span className="block">{venue.address}</span>
               <span className="block text-sm text-muted">{tKinds(venue.kind)}</span>
-              {venue.verified ? <VerifiedBadge /> : null}
+              {venue.verified ? (
+                <span className="mt-1 block">
+                  <VerifiedBadge />
+                </span>
+              ) : null}
               <a
-                className="link mt-1 inline-flex min-h-11 items-center text-sm"
+                className="link mt-1 flex min-h-11 items-center text-sm"
                 href={`https://www.openstreetmap.org/?mlat=${venue.lat}&mlon=${venue.lng}#map=18/${venue.lat}/${venue.lng}`}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -147,19 +153,7 @@ export default async function EventPage({ params, searchParams }: { params: Para
             </Fact>
           </dl>
 
-          {event.description ? (
-            <section aria-labelledby="about-heading" className="card p-5">
-              <h2 id="about-heading" className="text-2xl font-extrabold">
-                {t('about')}
-              </h2>
-              <p className="mt-3 whitespace-pre-line">{event.description}</p>
-            </section>
-          ) : null}
-
-          <GroupBoard event={event} viewer={viewer} going={going} posts={posts} status={typeof query.board === 'string' ? query.board : null} />
-        </div>
-
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 lg:sticky lg:top-4 lg:col-start-2 lg:row-span-3 lg:row-start-1">
           <section id="rsvp" aria-labelledby="rsvp-heading" className="card scroll-mt-4 p-5">
             <h2 id="rsvp-heading" className="text-2xl font-extrabold">
               {t('rsvpHeading')}
@@ -183,6 +177,19 @@ export default async function EventPage({ params, searchParams }: { params: Para
             </Link>
           </p>
         </div>
+
+          {event.description ? (
+            <section aria-labelledby="about-heading" className="card p-5 lg:col-start-1">
+              <h2 id="about-heading" className="text-2xl font-extrabold">
+                {t('about')}
+              </h2>
+              <p className="mt-3 whitespace-pre-line">{event.description}</p>
+            </section>
+          ) : null}
+
+          <div className="lg:col-start-1">
+            <GroupBoard event={event} viewer={viewer} going={going} posts={posts} status={typeof query.board === 'string' ? query.board : null} />
+          </div>
       </div>
     </div>
   );
@@ -303,9 +310,6 @@ async function SafetyBox() {
           {t('safetyRules')}
         </Link>
       </p>
-      <div className="mt-4">
-        <SafetyStrip compact />
-      </div>
     </section>
   );
 }

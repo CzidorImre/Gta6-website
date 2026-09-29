@@ -198,8 +198,8 @@
   }
 }
 
-/* Leaflet: dark UI chrome to match the theme. */
-.leaflet-container {
+/* Leaflet: dark UI chrome to match the theme (html prefix beats leaflet.css, which loads later). */
+html .leaflet-container {
   background: #10101a;
   font-family: var(--font-sans);
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
-import { getFormatter, getNow, getTranslations } from 'next-intl/server';
+import { getNow, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { getAppFormatter } from '@/i18n/format';
 import { pageLocale } from '@/i18n/page-locale';
 import { Notice } from '@/components/Notice';
 import { SubmitButton } from '@/components/SubmitButton';
@@ -29,7 +30,7 @@ export default async function OrganizerPage({
     getTranslations('organizer'),
     getTranslations('eventStatus'),
     getTranslations('errors'),
-    getFormatter(),
+    getAppFormatter(),
     getViewer(),
     getNow(),
   ]);

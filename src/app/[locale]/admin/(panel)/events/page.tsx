@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
-import { getFormatter, getNow, getTranslations } from 'next-intl/server';
+import { getNow, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { getAppFormatter } from '@/i18n/format';
 import { pageLocale } from '@/i18n/page-locale';
 import { createClient } from '@/lib/supabase/server';
 import { eventAction, legalHoldAction, venueVerifiedAction } from '../../actions';
@@ -14,7 +15,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function AdminEventsPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ done?: string; error?: string }> }) {
   await pageLocale(params);
   const query = await searchParams;
-  const [t, tStatus, format, now] = await Promise.all([getTranslations('admin.events'), getTranslations('eventStatus'), getFormatter(), getNow()]);
+  const [t, tStatus, format, now] = await Promise.all([getTranslations('admin.events'), getTranslations('eventStatus'), getAppFormatter(), getNow()]);
   const supabase = await createClient();
   const [{ data: events }, { data: holds }] = await Promise.all([
     supabase

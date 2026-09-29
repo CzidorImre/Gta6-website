@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
-import { getFormatter, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { getAppFormatter } from '@/i18n/format';
 import { pageLocale } from '@/i18n/page-locale';
 import { Notice } from '@/components/Notice';
 import { SubmitButton } from '@/components/SubmitButton';
@@ -23,7 +24,7 @@ export default async function RulesPage({
 }) {
   const locale = await pageLocale(params);
   const query = await searchParams;
-  const [t, format, viewer] = await Promise.all([getTranslations('rulesPage'), getFormatter(), getViewer()]);
+  const [t, format, viewer] = await Promise.all([getTranslations('rulesPage'), getAppFormatter(), getViewer()]);
   const accepted = Boolean(viewer?.profile.rules_accepted_at && viewer.profile.rules_version === RULES_VERSION);
   const rsvpEvent = query.rsvp && /^[0-9a-f-]{36}$/i.test(query.rsvp) ? query.rsvp : null;
 

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { getFormatter, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
+import { getAppFormatter } from '@/i18n/format';
 import { pageLocale } from '@/i18n/page-locale';
 import { createClient } from '@/lib/supabase/server';
 import { banAction } from '../../actions';
@@ -20,7 +21,7 @@ export default async function AdminUsersPage({
   await pageLocale(params);
   const query = await searchParams;
   const q = (query.q ?? '').slice(0, 100);
-  const [t, format] = await Promise.all([getTranslations('admin.users'), getFormatter()]);
+  const [t, format] = await Promise.all([getTranslations('admin.users'), getAppFormatter()]);
   const supabase = await createClient();
   const { data: users } = q ? await supabase.rpc('admin_find_users', { p_query: q }) : { data: [] };
 

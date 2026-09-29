@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { getFormatter, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
+import { getAppFormatter } from '@/i18n/format';
 import { pageLocale } from '@/i18n/page-locale';
 import { createClient } from '@/lib/supabase/server';
 import { reviewApplicationAction } from '../../actions';
@@ -13,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
 export default async function ApplicationsPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ done?: string; error?: string }> }) {
   await pageLocale(params);
   const query = await searchParams;
-  const [t, tKinds, format] = await Promise.all([getTranslations('admin.applications'), getTranslations('venueKinds'), getFormatter()]);
+  const [t, tKinds, format] = await Promise.all([getTranslations('admin.applications'), getTranslations('venueKinds'), getAppFormatter()]);
   const supabase = await createClient();
   const { data: applications } = await supabase
     .from('organizer_applications')

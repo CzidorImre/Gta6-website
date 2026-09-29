@@ -1,10 +1,11 @@
-import { getFormatter, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
+import { getAppFormatter } from '@/i18n/format';
 import { Link } from '@/i18n/navigation';
 import type { EventSummary } from '@/lib/data/events';
 import { AgeTag, PlatformTags, SpotsPill, VerifiedBadge } from './EventBits';
 
 export async function EventCard({ event, headingLevel = 'h3' }: { event: EventSummary; headingLevel?: 'h2' | 'h3' }) {
-  const format = await getFormatter();
+  const format = await getAppFormatter();
   const t = await getTranslations('venueKinds');
   const Heading = headingLevel;
   const when = format.dateTimeRange(new Date(event.startsAt), new Date(event.endsAt), {

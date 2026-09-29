@@ -51,7 +51,8 @@
     "emptyFiltered": "Niets gevonden met deze filters. Probeer een andere datum of een ander platform.",
     "emptyHost": "Baat je een bar of gamingcafé uit, of zit je in een studentenvereniging?",
     "emptyHostLink": "Organiseer een launchavond",
-    "deleted": "Je account en alles wat eraan gekoppeld was, is gewist. Het ga je goed!"
+    "deleted": "Je account en alles wat eraan gekoppeld was, is gewist. Het ga je goed!",
+    "safetyShort": "Enkel openbare locaties · elk event nagekeken"
   },
   "countdown": {
     "title": "Launch over",

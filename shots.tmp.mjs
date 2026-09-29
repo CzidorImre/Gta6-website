@@ -1,0 +1,11 @@
+import { chromium, devices } from '@playwright/test';
+const [SP, name, path, full, scrollTo] = process.argv.slice(2);
+const browser = await chromium.launch();
+const ctx = await browser.newContext({ ...devices['Pixel 7'] });
+const page = await ctx.newPage();
+await page.goto(`http://localhost:3000${path}`);
+await page.waitForTimeout(1200);
+if (scrollTo) await page.evaluate((y) => window.scrollTo(0, Number(y)), scrollTo);
+await page.waitForTimeout(300);
+await page.screenshot({ path: `${SP}/${name}.png`, fullPage: full === 'full' });
+await browser.close();

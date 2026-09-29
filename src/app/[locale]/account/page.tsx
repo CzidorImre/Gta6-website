@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
-import { getFormatter, getNow, getTranslations } from 'next-intl/server';
+import { getNow, getTranslations } from 'next-intl/server';
 import { Link } from '@/i18n/navigation';
+import { getAppFormatter } from '@/i18n/format';
 import { pageLocale } from '@/i18n/page-locale';
 import { Notice } from '@/components/Notice';
 import { SubmitButton } from '@/components/SubmitButton';
@@ -26,7 +27,7 @@ export default async function AccountPage({
   const locale = await pageLocale(params);
   const query = await searchParams;
   const viewer = await requireViewer('/account');
-  const [t, format, now] = await Promise.all([getTranslations('account'), getFormatter(), getNow()]);
+  const [t, format, now] = await Promise.all([getTranslations('account'), getAppFormatter(), getNow()]);
   const supabase = await createClient();
   const { data: rsvps } = await supabase
     .from('rsvps')

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { getFormatter, getTranslations } from 'next-intl/server';
+import { getTranslations } from 'next-intl/server';
+import { getAppFormatter } from '@/i18n/format';
 import { pageLocale } from '@/i18n/page-locale';
 import { createClient } from '@/lib/supabase/server';
 
@@ -10,7 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function AdminLogPage({ params }: { params: Promise<{ locale: string }> }) {
   await pageLocale(params);
-  const [t, format] = await Promise.all([getTranslations('admin.log'), getFormatter()]);
+  const [t, format] = await Promise.all([getTranslations('admin.log'), getAppFormatter()]);
   const supabase = await createClient();
   const { data: actions } = await supabase
     .from('moderation_actions')

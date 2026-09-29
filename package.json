@@ -22,7 +22,8 @@
     "db:types": "supabase gen types typescript --local --schema public > src/lib/supabase/database.types.ts",
     "db:reset": "supabase db reset",
     "supabase": "supabase",
-    "lighthouse": "node scripts/lighthouse.mjs"
+    "lighthouse": "node scripts/lighthouse.mjs",
+    "admin:code": "node scripts/admin-code.mjs"
   },
   "dependencies": {
     "@supabase/ssr": "^0.12.7",

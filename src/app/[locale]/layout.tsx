@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import type { ReactNode } from 'react';
-import { Bricolage_Grotesque } from 'next/font/google';
+import localFont from 'next/font/local';
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages, getTranslations } from 'next-intl/server';
 import { Analytics } from '@vercel/analytics/next';
@@ -9,11 +9,14 @@ import { Header } from '@/components/Header';
 import { Footer } from '@/components/Footer';
 import '../globals.css';
 
-const display = Bricolage_Grotesque({
-  subsets: ['latin'],
+// Bricolage Grotesque (SIL Open Font License, src/fonts/OFL.txt), self-hosted: no request to
+// Google at build or run time. Variable font, Latin subset; we use weights 700-800 for headings.
+const display = localFont({
+  src: '../../fonts/BricolageGrotesque-latin.woff2',
   variable: '--font-bricolage',
   display: 'swap',
-  weight: ['700', '800'],
+  weight: '200 800',
+  fallback: ['ui-sans-serif', 'system-ui', 'sans-serif'],
 });
 
 // Namespaces used by client components. The rest stays on the server.

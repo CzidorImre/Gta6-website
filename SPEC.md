@@ -230,7 +230,7 @@ server after the server has verified the session, Turnstile and rate limits.
 
 Functions callable by signed-in users (`authenticated`): `accept_community_rules`, `rsvp_event`,
 `cancel_rsvp`, `save_venue`, `save_event`, `cancel_event`, and the `admin_*` functions (which raise
-unless `is_admin()`). Functions callable only by `service_role`: `submit_report`,
+unless `is_admin()`). `supabase/tests/09_privileges.test.sql` asserts this exact list. Functions callable only by `service_role`: `submit_report`,
 `submit_organizer_application`, `check_rate_limit`, `purge_expired_data`. Everything else is revoked from
 `public`.
 
@@ -254,6 +254,7 @@ unless `is_admin()`). Functions callable only by `service_role`: `submit_report`
 | `admin_set_ban(user_id, banned, reason)` | admin | can't ban admins or yourself |
 | `admin_set_legal_hold(event_id, hold, reason)` | admin | inserts/deletes `event_legal_holds` |
 | `admin_set_venue_verified(venue_id, verified, reason)` | admin | badge |
+| `admin_find_users(query)` | admin | search by email / display name / id for the ban screen (joins `auth.users`) |
 | `check_rate_limit(bucket, max, window_seconds)` | service role | fixed window counter |
 | `purge_expired_data()` | pg_cron nightly 02:15 UTC | see §8 |
 
@@ -276,6 +277,7 @@ All pages are dynamically rendered (nonce-based CSP).
 | `/{locale}/account` | user | profile, my RSVPs, language, sign out, delete account |
 | `/{locale}/rules` | public; accept button for users | community and safety rules |
 | `/{locale}/report?type=event\|group_post&id=` | user | report form with Turnstile |
+| `/{locale}/report/thanks` | user | confirmation (says whether the target was hidden) |
 | `/{locale}/organizer` | user | application status or organizer dashboard |
 | `/{locale}/organizer/apply` | user | application form with Turnstile |
 | `/{locale}/organizer/events/new`, `/{locale}/organizer/events/{id}/edit` | organizer | venue + event form, geocoding, draggable pin |

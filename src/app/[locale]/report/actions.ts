@@ -4,7 +4,7 @@ import { getLocale } from 'next-intl/server';
 import { redirect } from '@/i18n/navigation';
 import type { Locale } from '@/i18n/routing';
 import { getViewer } from '@/lib/auth';
-import { notifyAdmins } from '@/lib/email/notify';
+import { absoluteUrl, notifyAdmins } from '@/lib/email/notify';
 import { type ErrorCode, errorCodeFrom } from '@/lib/errors';
 import { LIMITS, clientIp, hashIdentifier, withinRateLimit } from '@/lib/rate-limit';
 import { createAdminClient } from '@/lib/supabase/admin';
@@ -57,7 +57,7 @@ export async function reportAction(_prev: ReportFormState, formData: FormData): 
       title: `${event?.title ?? result.event_id}${parsed.data.targetType === 'group_post' ? ' (group board post)' : ''}`,
       hidden: result.hidden ? 'It was hidden automatically until someone reviews it.' : '',
       details: parsed.data.details || '(no details)',
-      url: `${process.env.SITE_URL ?? ''}/en/admin/reports`,
+      url: absoluteUrl('/en/admin/reports'),
     });
   }
   return redirect({

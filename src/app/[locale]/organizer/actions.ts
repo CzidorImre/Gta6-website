@@ -152,7 +152,8 @@ export async function cancelEventAction(formData: FormData) {
   const { data: event } = await supabase.from('events').select('title, status').eq('id', eventId).maybeSingle();
   const { error } = await supabase.rpc('cancel_event', { p_event_id: eventId });
   if (error) return redirect({ href: { pathname: '/organizer', query: { error: errorCodeFrom(error) } }, locale });
-  if (event?.status === 'published') await notifyAttendees(eventId, 'eventCancelledAttendee', { title: event.title });
+  // Everyone who RSVPed hears it's off (also for an event that was back in review after an edit).
+  if (event) await notifyAttendees(eventId, 'eventCancelledAttendee', { title: event.title });
   return redirect({ href: { pathname: '/organizer', query: { cancelled: '1' } }, locale });
 }
 

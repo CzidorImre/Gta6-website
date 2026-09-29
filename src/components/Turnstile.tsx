@@ -6,6 +6,7 @@ declare global {
   interface Window {
     turnstile?: {
       render: (el: HTMLElement, options: Record<string, unknown>) => string;
+      reset: (id: string) => void;
       remove: (id: string) => void;
     };
   }
@@ -30,9 +31,22 @@ function loadScript(): Promise<void> {
 /**
  * Cloudflare Turnstile widget. It adds a hidden `cf-turnstile-response` input to the surrounding
  * form. Renders nothing when no site key is configured (local development and tests).
+ * Tokens are single-use: pass the form's result as `resetKey` so a fresh token is fetched after
+ * every submission (e.g. when the server returned a validation error).
  */
-export function Turnstile({ siteKey, language }: { siteKey?: string; language: string }) {
+export function Turnstile({ siteKey, language, resetKey }: { siteKey?: string; language: string; resetKey?: unknown }) {
   const ref = useRef<HTMLDivElement>(null);
+  const widgetRef = useRef<string | undefined>(undefined);
+  const firstRender = useRef(true);
+
+  useEffect(() => {
+    if (firstRender.current) {
+      firstRender.current = false;
+      return;
+    }
+    if (widgetRef.current && window.turnstile) window.turnstile.reset(widgetRef.current);
+  }, [resetKey]);
+
   useEffect(() => {
     if (!siteKey || !ref.current) return;
     let widgetId: string | undefined;
@@ -46,6 +60,7 @@ export function Turnstile({ siteKey, language }: { siteKey?: string; language: s
           language: language === 'nl-BE' ? 'nl' : 'en',
           'response-field-name': 'cf-turnstile-response',
         });
+        widgetRef.current = widgetId;
       })
       .catch((error: unknown) => console.error(error));
     return () => {

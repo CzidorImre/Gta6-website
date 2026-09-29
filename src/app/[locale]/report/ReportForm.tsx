@@ -47,7 +47,7 @@ export function ReportForm({ targetType, targetId, turnstileSiteKey }: { targetT
           {t('detailsHint')}
         </span>
       </div>
-      <Turnstile siteKey={turnstileSiteKey} language={locale} />
+      <Turnstile siteKey={turnstileSiteKey} language={locale} resetKey={state} />
       <SubmitButton pendingLabel={t('sending')}>{t('submit')}</SubmitButton>
     </form>
   );

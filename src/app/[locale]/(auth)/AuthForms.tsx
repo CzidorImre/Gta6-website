@@ -96,7 +96,7 @@ export function SignupForm({ next, turnstileSiteKey, maxDate }: { next: string; 
         />
         <FieldError id="email-error" error={fe.email} />
       </div>
-      <Turnstile siteKey={turnstileSiteKey} language={locale} />
+      <Turnstile siteKey={turnstileSiteKey} language={locale} resetKey={state} />
       <p className="text-sm text-muted">
         {t.rich('legal', {
           terms: (chunks) => (
@@ -144,7 +144,7 @@ export function LoginForm({ next, turnstileSiteKey }: { next: string; turnstileS
         />
         <FieldError id="email-error" error={fe.email} />
       </div>
-      <Turnstile siteKey={turnstileSiteKey} language={locale} />
+      <Turnstile siteKey={turnstileSiteKey} language={locale} resetKey={state} />
       <SubmitButton pendingLabel={t('sending')}>{t('submit')}</SubmitButton>
     </form>
   );

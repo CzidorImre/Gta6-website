@@ -85,7 +85,7 @@ export function ApplicationForm({ turnstileSiteKey }: { turnstileSiteKey?: strin
           {tf('publicVenue')}
         </span>
       ) : null}
-      <Turnstile siteKey={turnstileSiteKey} language={locale} />
+      <Turnstile siteKey={turnstileSiteKey} language={locale} resetKey={state} />
       <SubmitButton pendingLabel={t('sending')}>{t('submit')}</SubmitButton>
     </form>
   );

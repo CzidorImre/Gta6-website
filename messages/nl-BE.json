@@ -507,7 +507,8 @@
     "deleteConfirmMissing": "Vink het vakje aan om te bevestigen.",
     "deleteError": "Er ging iets mis bij het wissen van je account. Probeer opnieuw of mail ons.",
     "deleting": "Wissen…",
-    "deleteButton": "Mijn account wissen"
+    "deleteButton": "Mijn account wissen",
+    "adminLink": "Moderatie (beheer)"
   },
   "rulesPage": {
     "title": "Community- & veiligheidsregels",

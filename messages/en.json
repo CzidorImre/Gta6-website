@@ -507,7 +507,8 @@
     "deleteConfirmMissing": "Tick the box to confirm.",
     "deleteError": "Something went wrong deleting your account. Please try again or email us.",
     "deleting": "Deleting…",
-    "deleteButton": "Delete my account"
+    "deleteButton": "Delete my account",
+    "adminLink": "Moderation (admin)"
   },
   "rulesPage": {
     "title": "Community & safety rules",

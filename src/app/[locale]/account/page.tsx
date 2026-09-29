@@ -133,6 +133,13 @@ export default async function AccountPage({
             {viewer.isOrganizer ? t('organizerDashboard') : t('organizerApply')}
           </Link>
         </p>
+        {viewer.profile.role === 'admin' ? (
+          <p className="mt-2">
+            <Link href="/admin" className="link">
+              {t('adminLink')}
+            </Link>
+          </p>
+        ) : null}
       </section>
 
       <form action={signOutAction} className="mt-6">

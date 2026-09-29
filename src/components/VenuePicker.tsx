@@ -36,6 +36,7 @@ export function VenuePicker({ initialLat, initialLng, tileUrl, attribution, addr
     void import('leaflet').then((L) => {
       if (cancelled || !containerRef.current || mapRef.current) return;
       const map = L.map(containerRef.current, { center: [position.lat, position.lng], zoom: 16, scrollWheelZoom: false });
+      map.attributionControl.setPrefix('<a href="https://leafletjs.com" target="_blank" rel="noopener">Leaflet</a>');
       if (tileUrl) L.tileLayer(tileUrl, { attribution, tileSize: 512, zoomOffset: -1, maxZoom: 19 }).addTo(map);
       const marker = L.marker([position.lat, position.lng], {
         draggable: true,
